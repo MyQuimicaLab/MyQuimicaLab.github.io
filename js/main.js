@@ -26,11 +26,11 @@ let movManager, player;
 
 function preload() {
 
-    this.load.image('lab-background-tile', 'assets/Objects/lab-background-tile.png');
-    this.load.image('resource-stand-1', 'assets/Objects/resource-stand-1.png');
-    this.load.image('resource-stand-2', 'assets/Objects/resource-stand-2.png');
+    this.load.image('lab-background-tile', 'Assets/Objects/lab-background-tile.png');
+    this.load.image('resource-stand-1', 'Assets/Objects/resource-stand-1.png');
+    this.load.image('resource-stand-2', 'Assets/Objects/resource-stand-2.png');
     this.load.spritesheet('cientista', 
-        'assets/Characters/cientista-1.png',
+        'Assets/Characters/cientista-1.png',
         { frameWidth: 16, frameHeight: 20 }
     );
 
