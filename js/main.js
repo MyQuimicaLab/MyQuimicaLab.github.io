@@ -26,6 +26,9 @@ let movManager, player;
 
 function preload() {
 
+    this.load.image('lab-background-tile', 'assets/Objects/lab-background-tile.png');
+    this.load.image('resource-stand-1', 'assets/Objects/resource-stand-1.png');
+    this.load.image('resource-stand-2', 'assets/Objects/resource-stand-2.png');
     this.load.spritesheet('cientista', 
         'assets/Characters/cientista-1.png',
         { frameWidth: 16, frameHeight: 20 }
@@ -35,10 +38,21 @@ function preload() {
 
 function create() {
 
-    player = this.physics.add.sprite(50, 50, 'cientista').setScale(3);
+    // Background
+    this.add.tileSprite(0, 0, 1600, 1600, 'lab-background-tile').setScale(3);
+
+    // Player
+    player = this.physics.add.sprite(300, 200, 'cientista').setScale(3);
     movManager = new MovementController(player, this.input.keyboard.createCursorKeys(), playerVelocity)
     setPlayerAnimations();
 
+    // Resource Stands
+    let resourceCenters = this.physics.add.staticGroup();
+    resourceCenters.create(300, 100, "resource-stand-1").setScale(3).refreshBody();
+    resourceCenters.create(100, 100, "resource-stand-2").setScale(3).refreshBody();
+
+    // Collider
+    this.physics.add.collider(resourceCenters, player);
 }
 
 function update() {
@@ -71,31 +85,30 @@ function setPlayerAnimations(){
     game.anims.create({
         key: 'right',
         frames: [{ key: 'cientista', frame: 2 } ],
-        frameRate: 10,
-        repeat: -1
+        frameRate: 5
     });
 
     game.anims.create({
         key: 'moving-left',
         frames: [ { key: 'cientista', frame: 5 }, { key: 'cientista', frame: 6 } ],
-        frameRate: 10
+        frameRate: 5
     });
 
     game.anims.create({
         key: 'moving-front',
         frames: [ { key: 'cientista', frame: 0 }, { key: 'cientista', frame: 3 } ],
-        frameRate: 10
+        frameRate: 5
     });
 
     game.anims.create({
         key: 'moving-back',
         frames: [ { key: 'cientista', frame: 1 }, { key: 'cientista', frame: 4 } ],
-        frameRate: 10
+        frameRate: 5
     });
 
     game.anims.create({
         key: 'moving-right',
         frames: [{ key: 'cientista', frame: 5 }, { key: 'cientista', frame: 6 } ],
-        frameRate: 10
+        frameRate: 5
     });
 }
