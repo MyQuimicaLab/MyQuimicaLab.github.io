@@ -22,7 +22,7 @@ const playerVelocity = 160;
 
 // Var
 let game = new Phaser.Game(config);
-let movManager, player;
+let movManager, inputManager, player;
 
 function preload() {
 
@@ -53,12 +53,16 @@ function create() {
 
     // Collider
     this.physics.add.collider(resourceCenters, player);
+
+    inputManager = new InputController(this.input);
+
+    inputManager.addKeyEvent('E', () => console.log('An action was performed!'));
+
 }
 
 function update() {
-
+    inputManager.update();
     movManager.update();
-
 }
 
 function setPlayerAnimations(){
