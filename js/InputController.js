@@ -1,11 +1,12 @@
-class InputController extends Phaser.Input.Keyboard.KeyboardPlugin {
+class InputController {
     constructor(sceneInput) {
-        super(sceneInput);
-        this.keyActions = [];
+        this._sceneInput = sceneInput;
+        this._keyActions = [];
     }
 
     update() {
-        for(let key of this.keyActions) {
+        for(let key of this._keyActions) {
+
            if(Phaser.Input.Keyboard.JustDown(key.key)) {
                 key.action();
            }
@@ -14,10 +15,10 @@ class InputController extends Phaser.Input.Keyboard.KeyboardPlugin {
 
     addKeyEvent(key, eventCallback) {
         let tempObj = {
-            key: super.addKey(key),
+            key: this._sceneInput.keyboard.addKey(key),
             action: eventCallback
         }
-
-        this.keyActions.push(tempObj);
+        
+        this._keyActions.push(tempObj);
     }
 }
