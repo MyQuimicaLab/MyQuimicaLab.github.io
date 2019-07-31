@@ -5,11 +5,10 @@ class InputController {
     }
 
     update() {
-        for(let key of this._keyActions) {
-
-           if(Phaser.Input.Keyboard.JustDown(key.key)) {
-                key.action();
-           }
+        for (let keyboardKey of this._keyActions) {
+            if (Phaser.Input.Keyboard.JustDown(keyboardKey.key)) {
+                keyboardKey.action();
+            }
         }
     }
 
@@ -18,7 +17,7 @@ class InputController {
             key: this._sceneInput.keyboard.addKey(key),
             action: eventCallback
         }
-        
+
         this._keyActions.push(tempObj);
     }
 }
