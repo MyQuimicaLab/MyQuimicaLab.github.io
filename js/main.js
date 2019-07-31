@@ -94,25 +94,25 @@ function setPlayerAnimations(){
 
     game.anims.create({
         key: 'moving-left',
-        frames: [ { key: 'cientista', frame: 5 }, { key: 'cientista', frame: 6 } ],
-        frameRate: 5
+        frames: [ { key: 'cientista', frame: 7 }, { key: 'cientista', frame: 2 }, { key: 'cientista', frame: 8 }, { key: 'cientista', frame: 2 } ],
+        frameRate: 8
     });
 
     game.anims.create({
         key: 'moving-front',
-        frames: [ { key: 'cientista', frame: 0 }, { key: 'cientista', frame: 3 } ],
-        frameRate: 5
+        frames: [ { key: 'cientista', frame: 3 }, { key: 'cientista', frame: 0 }, { key: 'cientista', frame: 4 }, { key: 'cientista', frame: 0 } ],
+        frameRate: 8
     });
 
     game.anims.create({
         key: 'moving-back',
-        frames: [ { key: 'cientista', frame: 1 }, { key: 'cientista', frame: 4 } ],
+        frames: [ { key: 'cientista', frame: 5 }, { key: 'cientista', frame: 1 }, { key: 'cientista', frame: 6 }, { key: 'cientista', frame: 1 } ],
         frameRate: 5
     });
 
     game.anims.create({
         key: 'moving-right',
-        frames: [{ key: 'cientista', frame: 5 }, { key: 'cientista', frame: 6 } ],
-        frameRate: 5
+        frames: [{ key: 'cientista', frame: 7 }, { key: 'cientista', frame: 2 }, { key: 'cientista', frame: 8 }, { key: 'cientista', frame: 2 } ],
+        frameRate: 8
     });
 }
