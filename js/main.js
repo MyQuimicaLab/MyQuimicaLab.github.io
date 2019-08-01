@@ -62,7 +62,8 @@ function create() {
     movController = new MovementController(player, this.input.keyboard.createCursorKeys(), playerVelocity)
         // Input Controller
     inputController = new InputController(this.input);
-    inputController.addKeyEvent('E', isCloseToGroup, resourceStands);
+
+    inputController.addKeyEvent('E', player.isCloseToGroup, resourceStands, player);
     this.children.bringToTop(player);
     
     // Collider
