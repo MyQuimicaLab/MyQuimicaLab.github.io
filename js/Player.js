@@ -3,57 +3,52 @@ class Player extends Phaser.Physics.Arcade.Sprite {
     constructor(scene, x, y, texture, frame){
         super(scene, x, y, texture, frame)
         this._scene = scene;
-        scene.add.existing(this);
-        scene.physics.add.existing(this);
-        this.setAnimations(scene, texture);
+        this._scene.add.existing(this);
+        this._scene.physics.add.existing(this);
+        this.setAnimations(texture);
     }
 
-    setAnimations(scene, texture){
+    setAnimations(texture){
 
-        scene.anims.create({
+        this._scene.anims.create({
             key: 'left',
-            frames: [ { key: texture, frame: 2 } ],
-            frameRate: 10,
-            repeat: -1
+            frames: [ { key: texture, frame: 2 } ]
         });
     
-        scene.anims.create({
+        this._scene.anims.create({
             key: 'front',
-            frames: [ { key: texture, frame: 0 } ],
-            frameRate: 10
+            frames: [ { key: texture, frame: 0 } ]
         });
     
-        scene.anims.create({
+        this._scene.anims.create({
             key: 'back',
-            frames: [ { key: texture, frame: 1 } ],
-            frameRate: 10
+            frames: [ { key: texture, frame: 1 } ]
         });
     
-        scene.anims.create({
+        this._scene.anims.create({
             key: 'right',
-            frames: [{ key: texture, frame: 2 } ],
-            frameRate: 5
+            frames: [{ key: texture, frame: 2 } ]
         });
     
-        scene.anims.create({
+        this._scene.anims.create({
             key: 'moving-left',
             frames: [ { key: texture, frame: 7 }, { key: texture, frame: 2 }, { key: texture, frame: 8 }, { key: texture, frame: 2 } ],
             frameRate: 8
         });
     
-        scene.anims.create({
+        this._scene.anims.create({
             key: 'moving-front',
             frames: [ { key: texture, frame: 3 }, { key: texture, frame: 0 }, { key: texture, frame: 4 }, { key: texture, frame: 0 } ],
             frameRate: 8
         });
     
-        scene.anims.create({
+        this._scene.anims.create({
             key: 'moving-back',
             frames: [ { key: texture, frame: 5 }, { key: texture, frame: 1 }, { key: texture, frame: 6 }, { key: texture, frame: 1 } ],
             frameRate: 8
         });
     
-        scene.anims.create({
+        this._scene.anims.create({
             key: 'moving-right',
             frames: [{ key: texture, frame: 7 }, { key: texture, frame: 2 }, { key: texture, frame: 8 }, { key: texture, frame: 2 } ],
             frameRate: 8
