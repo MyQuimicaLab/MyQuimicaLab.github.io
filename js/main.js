@@ -22,7 +22,7 @@ const playerVelocity = 160;
 
 // Var
 let game = new Phaser.Game(config);
-let movController, inputController, player;
+let movController, inputController, player, resourceStands;
 
 let physics;
 
@@ -45,23 +45,28 @@ function create() {
     // Background
     this.add.tileSprite(0, 0, 1600, 1600, 'lab-background-tile').setScale(3);
 
+    // Resource Stands
+    resourceStands = this.physics.add.staticGroup();
+    resourceStands.name = "resource-stand-group";
+
+    resourceStands.create(300, 100, "resource-stand-1")
+        .setScale(3).refreshBody().setSize(90, 20).setOrigin(0.5, 0.20);
+
+    resourceStands.create(100, 100, "resource-stand-2")
+        .setScale(3).refreshBody().setSize(90, 50).setOrigin(0.5, 0.30)
+
+
     // Player
-    //player = this.physics.add.sprite(300, 200, 'cientista').setScale(3);
     player = new Player(this, 300, 200, 'cientista').setScale(3);
         // Movement Controller
     movController = new MovementController(player, this.input.keyboard.createCursorKeys(), playerVelocity)
         // Input Controller
     inputController = new InputController(this.input);
-
-    // Resource Stands
-    let resourceCenters = this.physics.add.staticGroup();
-    resourceCenters.name = "resourceCenters";
-    resourceCenters.create(300, 100, "resource-stand-1").setScale(3).refreshBody();
-    resourceCenters.create(100, 100, "resource-stand-2").setScale(3).refreshBody();
-    inputController.addKeyEvent('E', isCloseToGroup, resourceCenters);
-
+    inputController.addKeyEvent('E', isCloseToGroup, resourceStands);
+    this.children.bringToTop(player);
+    
     // Collider
-    this.physics.add.collider(resourceCenters, player);
+    this.physics.add.collider(resourceStands, player);
 }
 
 function update() {
