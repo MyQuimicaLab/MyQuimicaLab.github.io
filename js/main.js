@@ -22,7 +22,7 @@ const playerVelocity = 160;
 
 // Var
 let game = new Phaser.Game(config);
-let movManager, inputManager, player;
+let movController, inputController, player;
 
 let physics;
 
@@ -46,79 +46,28 @@ function create() {
     this.add.tileSprite(0, 0, 1600, 1600, 'lab-background-tile').setScale(3);
 
     // Player
-    player = this.physics.add.sprite(300, 200, 'cientista').setScale(3);
-    movManager = new MovementController(player, this.input.keyboard.createCursorKeys(), playerVelocity)
-    setPlayerAnimations();
+    //player = this.physics.add.sprite(300, 200, 'cientista').setScale(3);
+    player = new Player(this, 300, 200, 'cientista').setScale(3);
+        // Movement Controller
+    movController = new MovementController(player, this.input.keyboard.createCursorKeys(), playerVelocity)
+        // Input Controller
+    inputController = new InputController(this.input);
 
     // Resource Stands
     let resourceCenters = this.physics.add.staticGroup();
     resourceCenters.name = "resourceCenters";
     resourceCenters.create(300, 100, "resource-stand-1").setScale(3).refreshBody();
     resourceCenters.create(100, 100, "resource-stand-2").setScale(3).refreshBody();
+    inputController.addKeyEvent('E', isCloseToGroup, resourceCenters);
 
     // Collider
     this.physics.add.collider(resourceCenters, player);
-
-    inputManager = new InputController(this.input);
-
-    inputManager.addKeyEvent('E', isCloseToGroup, resourceCenters);
 }
 
 function update() {
-    inputManager.update();
-    movManager.update();
-}
-
-function setPlayerAnimations(){
-
-    game.anims.create({
-        key: 'left',
-        frames: [ { key: 'cientista', frame: 2 } ],
-        frameRate: 10,
-        repeat: -1
-    });
-
-    game.anims.create({
-        key: 'front',
-        frames: [ { key: 'cientista', frame: 0 } ],
-        frameRate: 10
-    });
-
-    game.anims.create({
-        key: 'back',
-        frames: [ { key: 'cientista', frame: 1 } ],
-        frameRate: 10
-    });
-
-    game.anims.create({
-        key: 'right',
-        frames: [{ key: 'cientista', frame: 2 } ],
-        frameRate: 5
-    });
-
-    game.anims.create({
-        key: 'moving-left',
-        frames: [ { key: 'cientista', frame: 7 }, { key: 'cientista', frame: 2 }, { key: 'cientista', frame: 8 }, { key: 'cientista', frame: 2 } ],
-        frameRate: 8
-    });
-
-    game.anims.create({
-        key: 'moving-front',
-        frames: [ { key: 'cientista', frame: 3 }, { key: 'cientista', frame: 0 }, { key: 'cientista', frame: 4 }, { key: 'cientista', frame: 0 } ],
-        frameRate: 8
-    });
-
-    game.anims.create({
-        key: 'moving-back',
-        frames: [ { key: 'cientista', frame: 5 }, { key: 'cientista', frame: 1 }, { key: 'cientista', frame: 6 }, { key: 'cientista', frame: 1 } ],
-        frameRate: 5
-    });
-
-    game.anims.create({
-        key: 'moving-right',
-        frames: [{ key: 'cientista', frame: 7 }, { key: 'cientista', frame: 2 }, { key: 'cientista', frame: 8 }, { key: 'cientista', frame: 2 } ],
-        frameRate: 8
-    });
+    movController.update();
+    inputController.update();
+        
 }
 
 /*This function will be replaced in the 'Player' class when it's done.
