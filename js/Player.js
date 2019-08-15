@@ -55,14 +55,13 @@ class Player extends Phaser.Physics.Arcade.Sprite {
         });
     }
 
-    isCloseToGroup(group) {
+    displayProximityMessage(group) {
         let responses = new Map([
             ['resource-stand-1', 'Centro de recursos 1!'],
             ['resource-stand-2', 'Centro de recursos 2!']
         ]);
     
         let closeObjects = this._scene.physics.overlapRect(this.x - this.width, this.y - this.height, 200, 200, false, true);
-        
         let nearestResourceCenter = closeObjects.filter(object => group.getChildren().includes(object.gameObject))[0];
         
         if(nearestResourceCenter) {
@@ -70,4 +69,10 @@ class Player extends Phaser.Physics.Arcade.Sprite {
         }
     }
 
+    isCloseToGroup(player, group){
+        
+        let closeObjects = player._scene.physics.overlapRect(player.x - player.width, player.y - player.height, 200, 200, false, true);
+        let nearestResourceCenter = closeObjects.filter(object => group.getChildren().includes(object.gameObject))[0];
+        return nearestResourceCenter != undefined;
+    }
 }

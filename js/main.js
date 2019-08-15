@@ -22,7 +22,7 @@ const playerVelocity = 160;
 
 // Var
 let game = new Phaser.Game(config);
-let movController, inputController, player, resourceStands;
+let movController, inputController, player, resourceStands, tootipController;
 
 function preload() {
 
@@ -33,6 +33,8 @@ function preload() {
         'Assets/Characters/cientista-1.png',
         { frameWidth: 16, frameHeight: 20 }
     );
+
+    this.load.image('tooltip', 'Assets/Tooltips/tooltip.png');
 
 }
 
@@ -58,8 +60,11 @@ function create() {
         // Input Controller
     inputController = new InputController(this.input);
 
-    inputController.addKeyEvent('E', player.isCloseToGroup, resourceStands, player);
+    inputController.addKeyEvent('E', player.displayProximityMessage, resourceStands, player);
     this.children.bringToTop(player);
+
+    tootipController = new TooltipController(this, player, player.isCloseToGroup);
+    tootipController.addTooltipEvent('tooltip', resourceStands)
     
     // Collider
     this.physics.add.collider(resourceStands, player);
@@ -68,4 +73,5 @@ function create() {
 function update() {
     movController.update();
     inputController.update();
+    tootipController.update();
 }
