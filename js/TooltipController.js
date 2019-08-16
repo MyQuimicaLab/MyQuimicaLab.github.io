@@ -10,10 +10,15 @@ class TooltipController {
     update() {
         
         for (let tooltip of this._tooltips) {
+
+            if (tooltip.object != undefined)
+                this.updateTooltipLocation(tooltip);
+
             if (this._triggerCallback(this._player, tooltip.group)) {
                 
                 if (tooltip.object == undefined || !tooltip.object.active) {
-                    tooltip.object = this._scene.add.image(111, 300, tooltip.asset);
+                    tooltip.object = this._scene.add
+                        .image(this._player.x, this._player.y - 70, tooltip.asset);
                 }
             }
             else{
@@ -24,6 +29,13 @@ class TooltipController {
                 }
             }
         }
+    }
+
+    updateTooltipLocation(tooltip){
+
+        tooltip.object.x = this._player.x;
+        tooltip.object.y = this._player.y - 70;
+
     }
 
     addTooltipEvent(asset, watchedGroup) {
