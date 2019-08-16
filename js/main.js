@@ -25,6 +25,16 @@ let game = new Phaser.Game(config);
 let movController, inputController, player, resourceStands, tootipController;
 
 function preload() {
+    let browserSupportCheck = new BrowserSupportController(this.sys.game.device).checkCompatibility();
+
+    if(!browserSupportCheck.support) {
+        alert('Ops! Parece que o seu dispositivo ainda não possui suporte às seguintes tecnologias: \n'
+        + browserSupportCheck.notSupportedFeatures);
+
+        if(browserSupportCheck.notSupportedFeatures.includes('canvas')) {
+            window.location.replace('browser_doesnt_support.html');
+        }
+    }
 
     this.load.image('lab-background-tile', 'Assets/Objects/lab-background-tile.png');
     this.load.image('resource-stand-1', 'Assets/Objects/resource-stand-1.png');
@@ -68,6 +78,8 @@ function create() {
     
     // Collider
     this.physics.add.collider(resourceStands, player);
+
+    
 }
 
 function update() {
