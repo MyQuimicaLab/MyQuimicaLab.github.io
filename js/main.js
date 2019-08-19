@@ -44,7 +44,7 @@ function preload() {
         { frameWidth: 16, frameHeight: 20 }
     );
 
-    this.load.image('tooltip', 'Assets/Tooltips/tooltip.png');
+    this.load.image('interact-tooltip', 'Assets/Tooltips/interact-tooltip.png');
 
 }
 
@@ -56,10 +56,10 @@ function create() {
     resourceStands = this.physics.add.staticGroup();
     resourceStands.name = "resource-stand-group";
 
-    resourceStands.create(300, 100, "resource-stand-1")
+    resourceStands.create(400, 170, "resource-stand-1")
         .setScale(3).refreshBody().setSize(90, 20).setOrigin(0.5, 0.20);
 
-    resourceStands.create(100, 100, "resource-stand-2")
+    resourceStands.create(200, 200, "resource-stand-2")
         .setScale(3).refreshBody().setSize(90, 50).setOrigin(0.5, 0.30)
 
 
@@ -74,7 +74,7 @@ function create() {
     this.children.bringToTop(player);
 
     tootipController = new TooltipController(this, player, player.isCloseToGroup);
-    tootipController.addTooltipEvent('tooltip', resourceStands)
+    tootipController.addTooltipEvent('interact-tooltip', resourceStands)
     
     // Collider
     this.physics.add.collider(resourceStands, player);
