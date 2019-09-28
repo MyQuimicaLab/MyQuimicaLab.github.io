@@ -65,6 +65,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
         let nearestResourceCenter = closeObjects.filter(object => group.getChildren().includes(object.gameObject))[0];
         
         if(nearestResourceCenter) {
+            document.querySelector('article').style.zIndex = 100;
             console.log(responses.get(nearestResourceCenter.gameObject.texture.key));
         }
     }
