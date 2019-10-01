@@ -50,10 +50,8 @@ function preload() {
 }
 
 function create() {
-    // Background
     this.add.tileSprite(0, 0, 1600, 1600, 'lab-background-tile').setScale(3);
 
-    // Resource Stands
     resourceStands = this.physics.add.staticGroup();
     resourceStands.name = "resource-stand-group";
 
@@ -64,11 +62,11 @@ function create() {
         .setScale(3).refreshBody().setSize(90, 50).setOrigin(0.5, 0.30)
 
 
-    // Player
+
     player = new Player(this, 300, 200, 'cientista').setScale(3);
-        // Movement Controller
+ 
     movController = new MovementController(player, this.input.keyboard.createCursorKeys(), playerVelocity)
-        // Input Controller
+
     inputController = new InputController(this.input);
 
     inputController.addKeyEvent('E', player.displayProximityMessage, resourceStands, player);
