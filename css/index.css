@@ -1,0 +1,25 @@
+:root {
+    --iconSize: calc(15px + 1.7vw);
+}
+
+* {
+    user-select: none;
+}
+p {
+    margin: 0;
+}
+
+ul li {
+   display: inline-block;
+   list-style: none;
+   height: var(--iconSize);
+}
+
+ul li p {
+    line-height: var(--iconSize);
+    margin-left: calc(1.2 * var(--iconSize));
+}
+ul li > img {
+    width: var(--iconSize);
+    position: absolute;
+}

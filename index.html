@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/index.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
     <title>Quimica Game</title>
-    <style>
-        article {
-            position: absolute;
-            width: 400px;
-            height: 300px;
-            z-index: -10;
-        }
-    </style>
 </head>
+
 <body>
-    <article>
-        <p>Você clicou em um centro de recursos!</p>
-    </article>
+    <section>
+        <ul>
+            <li>
+                <img src="Assets/Icons/rcAtom.png">
+                <p data-icon="Assets/Icons/rcAtom.png">0</p>
+            </li>
+            <li>
+                <img src="Assets/Icons/rcFlask.png">
+                <p data-icon="Assets/Icons/rcAtom.png">0</p>
+            </li>
+            <li>
+                <img src="Assets/Icons/rcConstruction.png">
+                <p data-icon="Assets/Icons/rcAtom.png">0</p>
+            </li>
+        </ul>
+    </section>
     <canvas>
     </canvas>
     <script src="Phaser/phaser.min.js"></script>
@@ -28,4 +37,5 @@
     <script src="js/Player.js"></script>
     <script src="js/Main.js"></script>
 </body>
+
 </html>
