@@ -21,6 +21,7 @@ main {
 p {
     margin: 0;
     font-size: calc(16px + .4vw);
+    color: #4C4C4C;
 }
 
 ul {
