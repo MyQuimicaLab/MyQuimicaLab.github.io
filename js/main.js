@@ -23,7 +23,7 @@ const playerVelocity = 160;
 
 // Var
 let game = new Phaser.Game(config);
-let movController, inputController, player, resourceStands, tootipController;
+let movController, inputController, player, resourceStands, tootipController, resourceCenterController;
 
 function preload() {
     let browserSupportCheck = new BrowserSupportController(this.sys.game.device).checkCompatibility();
@@ -62,6 +62,11 @@ function create() {
         .setScale(3).refreshBody().setSize(90, 50).setOrigin(0.5, 0.30)
 
 
+    resourceCenterController = new ResourceCenterController([
+        new ResourceCenter('reagents'),
+        new ResourceCenter('glassware'),
+        new ResourceCenter('constructionmaterial')
+    ]);
 
     player = new Player(this, 300, 200, 'cientista').setScale(3);
  
@@ -78,10 +83,16 @@ function create() {
     // Collider
     this.physics.add.collider(resourceStands, player);
 
-    
+    /*
+        ResourceCenterController.increment(, 10);
+     */
+
 }
 
 function update() {
+    resourceCenterController.increment('reagents', 1);
+    resourceCenterController.increment('glASSwAre', '2');
+    resourceCenterController.increment('constructionMATERIAL', 3);
     movController.update();
     inputController.update();
     tootipController.update();
