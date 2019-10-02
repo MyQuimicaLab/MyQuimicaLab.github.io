@@ -22,4 +22,5 @@ ul li p {
 ul li > img {
     width: var(--iconSize);
     position: absolute;
+    pointer-events: none;
 }
