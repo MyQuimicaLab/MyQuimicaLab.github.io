@@ -65,14 +65,23 @@ class Player extends Phaser.Physics.Arcade.Sprite {
         let nearestResourceCenter = closeObjects.filter(object => group.getChildren().includes(object.gameObject))[0];
         
         if(nearestResourceCenter) {
-            console.log(responses.get(nearestResourceCenter.gameObject.texture.key));
+            responses.get(nearestResourceCenter.gameObject.texture.key);
         }
     }
 
-    isCloseToGroup(player, group){
+    isCloseToGroup(player = this, group){
         
         let closeObjects = player._scene.physics.overlapRect(player.x - player.width, player.y - player.height, 200, 200, false, true);
         let nearestResourceCenter = closeObjects.filter(object => group.getChildren().includes(object.gameObject))[0];
         return nearestResourceCenter != undefined;
+    }
+
+    isCloseToElement(key){
+
+        let closeObjects = this._scene.physics.overlapRect(player.x - player.width, player.y - player.height, 200, 200, false, true);
+        if (closeObjects[0] != undefined)
+            return closeObjects[0].gameObject.texture.key == key;
+        else 
+            return false;
     }
 }

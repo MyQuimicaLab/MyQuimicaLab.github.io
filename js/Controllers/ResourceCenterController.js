@@ -1,22 +1,32 @@
 class ResourceCenterController {
-    constructor(resourceCenterCollection) {
-        this.resourceCenterCollection = resourceCenterCollection;
+    constructor(resourceCollection, updateConditionCallback, conditionCallbackReference) {
+        this.resourceCenterCollection = resourceCollection;
+        if (updateConditionCallback != undefined)
+            this.updateConditionCallback = updateConditionCallback.bind(conditionCallbackReference);
     }
 
-    increment(resourceCenterName, valueToIncrement) {
-        resourceCenterName = resourceCenterName.toLowerCase();
+    increment(resourceName, valueToIncrement = 1) {
 
-        let correspondentResourceCenter = this.resourceCenterCollection.filter(rc => rc.getResourceID() == resourceCenterName)[0];
+        resourceName = resourceName.toLowerCase();
 
-        if(!isNaN(valueToIncrement) && correspondentResourceCenter) {
-            correspondentResourceCenter.incrementResourceAmount(Math.ceil(valueToIncrement));
-            let resourceAmountContainer = document.querySelector("ul li p[name='rc_" + resourceCenterName + "']");
+        let correspondentResourceCenter = this.resourceCenterCollection.filter(rc => rc.getResourceID() == resourceName)[0];
 
-            resourceAmountContainer.innerHTML = correspondentResourceCenter.getResourceAmount();
+        
+
+        if (this.updateConditionCallback != undefined && this.updateConditionCallback(resourceName)) {
+            
+            if(!isNaN(valueToIncrement) && correspondentResourceCenter) {
+                correspondentResourceCenter.incrementResourceAmount(Math.ceil(valueToIncrement));
+                let resourceAmountContainer = document.querySelector("ul li p[name='rc_" + resourceName + "']");
+    
+                resourceAmountContainer.innerHTML = correspondentResourceCenter.getResourceAmount();
+                console.log("Resource " + resourceName + " incremented by " + valueToIncrement);
+                
+            }
         }
     }
 
-    decrease(resourceCenterName, valueToIncrement) {
+    decrease(resourceCenterName, valueToIncrement = 1) {
         this.increment(resourceCenterName, -valueToIncrement);
     }
     
