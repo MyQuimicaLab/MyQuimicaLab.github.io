@@ -61,7 +61,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
             ['resource-stand-2', 'Centro de recursos 2!']
         ]);
     
-        let closeObjects = this._scene.physics.overlapRect(this.x - this.width, this.y - this.height, 200, 200, false, true);
+        let closeObjects = this.getCloseObjects();
         let nearestResourceCenter = closeObjects.filter(object => group.getChildren().includes(object.gameObject))[0];
         
         if(nearestResourceCenter) {
@@ -70,18 +70,17 @@ class Player extends Phaser.Physics.Arcade.Sprite {
     }
 
     isCloseToGroup(player = this, group){
-        
-        let closeObjects = player._scene.physics.overlapRect(player.x - player.width, player.y - player.height, 200, 200, false, true);
+        let closeObjects = player.getCloseObjects();//player._scene.physics.overlapRect(player.x - player.width, player.y - player.height, 100, 100, false, true);
         let nearestResourceCenter = closeObjects.filter(object => group.getChildren().includes(object.gameObject))[0];
         return nearestResourceCenter != undefined;
     }
 
-    isCloseToElement(key){
+    getCloseObjects(playerReference = this, desiredOverlapWidth = 150, desiredOverlapHeight) {
+        let overlapWidth =  desiredOverlapWidth,
+            overlapHeight = desiredOverlapHeight ? desiredOverlapHeight : desiredOverlapWidth,
+            boundOffset = 100;
 
-        let closeObjects = this._scene.physics.overlapRect(player.x - player.width, player.y - player.height, 200, 200, false, true);
-        if (closeObjects[0] != undefined)
-            return closeObjects[0].gameObject.texture.key == key;
-        else 
-            return false;
+        return playerReference._scene.physics.overlapRect(playerReference.x - boundOffset, 
+            playerReference.y + playerReference.height - boundOffset, overlapWidth, overlapHeight, false, true);
     }
 }
