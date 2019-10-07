@@ -1,0 +1,155 @@
+[
+ {
+   "Nome Informal": "Ureia",
+   "Nome IUPAC": "Diaminometanal",
+   "Formula Estrutural": "NH2CONH2",
+   "Formula Molecular": "CO(NH2)2",
+   "Grupo Funcional": "Aldeído",
+   "Hibridização dos Carbonos": "sp2",
+   "Descrição de aplicação prática ou exemplo de presença do composto": "Forma-se principalmente no fígado, sendo filtrada pelos rins e eliminada pela urina ou pelo suor."
+ },
+ {
+   "Nome Informal": null,
+   "Nome IUPAC": "Ácido propanoico",
+   "Formula Estrutural": "CH3CH2CO2H",
+   "Formula Molecular": "C3H6O2",
+   "Grupo Funcional": "Ácido Carboxílico",
+   "Hibridização dos Carbonos": "sp3, sp3, sp2",
+   "Descrição de aplicação prática ou exemplo de presença do composto": "É usado na indústria alimentícia para evitar o amarelecimento do pão."
+ },
+ {
+   "Nome Informal": null,
+   "Nome IUPAC": "Etanol",
+   "Formula Estrutural": "CH3CH2OH",
+   "Formula Molecular": "C2H6O",
+   "Grupo Funcional": "Álcool",
+   "Hibridização dos Carbonos": "sp3, sp3",
+   "Descrição de aplicação prática ou exemplo de presença do composto": "Encontrado em bebidas e utilizado como combustível de motores de explosão."
+ },
+ {
+   "Nome Informal": null,
+   "Nome IUPAC": "Pentan-2-ona",
+   "Formula Estrutural": "CH3CH2CH2COCH3",
+   "Formula Molecular": "C5H10O",
+   "Grupo Funcional": "Cetona",
+   "Hibridização dos Carbonos": "sp3, sp3, sp3, sp2, sp3",
+   "Descrição de aplicação prática ou exemplo de presença do composto": "Algumas vezes é usado em quantidades muito pequenas como um aditivo alimentar flavorizante."
+ },
+ {
+   "Nome Informal": "Etanal",
+   "Nome IUPAC": "Acetaldeído",
+   "Formula Estrutural": "CH3COH",
+   "Formula Molecular": "C2H4O",
+   "Grupo Funcional": "Aldeído",
+   "Hibridização dos Carbonos": "sp3, sp2",
+   "Descrição de aplicação prática ou exemplo de presença do composto": "É um dos produtos da metabolização do etanol no organismo. É a substância responsável pela ressaca."
+ },
+ {
+   "Nome Informal": "Polietileno",
+   "Nome IUPAC": "Polieteno",
+   "Formula Estrutural": "(CH2CH2)n",
+   "Formula Molecular": null,
+   "Grupo Funcional": "Alcano",
+   "Hibridização dos Carbonos": "(sp3, sp3)n",
+   "Descrição de aplicação prática ou exemplo de presença do composto": "É o polímero mais simples quimicamente e um dos tipos de plástico mais comuns."
+ },
+ {
+   "Nome Informal": null,
+   "Nome IUPAC": "Butano",
+   "Formula Estrutural": "CH3CH2CH2CH3",
+   "Formula Molecular": "\tC4H10",
+   "Grupo Funcional": "Alcano",
+   "Hibridização dos Carbonos": "sp3, sp3, sp3, sp3",
+   "Descrição de aplicação prática ou exemplo de presença do composto": "Está presente no gás liquefeito de petróleo (GLP)."
+ },
+ {
+   "Nome Informal": null,
+   "Nome IUPAC": "1-Buteno",
+   "Formula Estrutural": "CH2CHCH2CH3",
+   "Formula Molecular": "C4H8",
+   "Grupo Funcional": "Alceno",
+   "Hibridização dos Carbonos": "sp2, sp2, sp3, sp3",
+   "Descrição de aplicação prática ou exemplo de presença do composto": "O principal uso é a síntese do butadieno para a borracha artificial."
+ },
+ {
+   "Nome Informal": "Benzeno",
+   "Nome IUPAC": "Ciclohex-1,3,5-trieno",
+   "Formula Estrutural": "CHCHCHCHCHCH",
+   "Formula Molecular": "C6H6",
+   "Grupo Funcional": "Aromático",
+   "Hibridização dos Carbonos": "sp2, sp2, sp2, sp2, sp2, sp2",
+   "Descrição de aplicação prática ou exemplo de presença do composto": "É uma substância usada como solvente (de iodo, enxofre, graxas, ceras, etc.)."
+ },
+ {
+   "Nome Informal": "Acetileno",
+   "Nome IUPAC": "Etino",
+   "Formula Estrutural": "CHCH",
+   "Formula Molecular": "C2H2",
+   "Grupo Funcional": "Hidrocarboneto",
+   "Hibridização dos Carbonos": "sp",
+   "Descrição de aplicação prática ou exemplo de presença do composto": "É matéria prima para a produção de fibras têxteis, borrachas sintéticas e polímeros."
+ },
+ {
+   "Nome Informal": null,
+   "Nome IUPAC": "Etano",
+   "Formula Estrutural": "CH3CH3",
+   "Formula Molecular": "C2H6",
+   "Grupo Funcional": "Hidrocarboneto",
+   "Hibridização dos Carbonos": "sp3",
+   "Descrição de aplicação prática ou exemplo de presença do composto": "Usado como gás refrigerante para produzir tempraturas criogênicas em sistemas de refrigeração."
+ },
+ {
+   "Nome Informal": "Ácido adípico",
+   "Nome IUPAC": "Ácido hexanodióico",
+   "Formula Estrutural": "HOOC(CH2)3COOH",
+   "Formula Molecular": "C6H10O4",
+   "Grupo Funcional": "Ácido Carboxílico",
+   "Hibridização dos Carbonos": "sp2, sp3",
+   "Descrição de aplicação prática ou exemplo de presença do composto": "Uma das matérias primas na fabricação do náilon."
+ },
+ {
+   "Nome Informal": "Acetona",
+   "Nome IUPAC": "Propanona",
+   "Formula Estrutural": "CH3OCH3",
+   "Formula Molecular": "C3H6O",
+   "Grupo Funcional": "Cetona",
+   "Hibridização dos Carbonos": "sp2, sp3",
+   "Descrição de aplicação prática ou exemplo de presença do composto": "Vendida comercialmente como solvente de esmaltes de unha."
+ },
+ {
+   "Nome Informal": "Acetato de amila",
+   "Nome IUPAC": "Etanoato de pentila",
+   "Formula Estrutural": "CH3OCO(CH2)4CH3",
+   "Formula Molecular": "C7H14O2",
+   "Grupo Funcional": "Éster",
+   "Hibridização dos Carbonos": "sp2, sp3",
+   "Descrição de aplicação prática ou exemplo de presença do composto": "Composto que dá o aroma e sabor de banana à balas, iogurtes, bolos etc"
+ },
+ {
+   "Nome Informal": "Éter etílico",
+   "Nome IUPAC": "Etoxietano",
+   "Formula Estrutural": "CH3CH2OCH2CH3",
+   "Formula Molecular": "(C2H5)2O",
+   "Grupo Funcional": "Éter",
+   "Hibridização dos Carbonos": "sp3",
+   "Descrição de aplicação prática ou exemplo de presença do composto": "Era usado como anestésico em pacientes, mas foi abandonado devido ao alto riscod e explosão."
+ },
+ {
+   "Nome Informal": "Álcool de madeira",
+   "Nome IUPAC": "Metanol",
+   "Formula Estrutural": "CH3OH",
+   "Formula Molecular": "CH4O",
+   "Grupo Funcional": "Álcool",
+   "Hibridização dos Carbonos": "sp3",
+   "Descrição de aplicação prática ou exemplo de presença do composto": "Usado como solvente de tintas e verniz."
+ },
+ {
+   "Nome Informal": "Álcool vinílico",
+   "Nome IUPAC": "Etenol",
+   "Formula Estrutural": "CH2CH2OH",
+   "Formula Molecular": "C2H4O",
+   "Grupo Funcional": "Enol",
+   "Hibridização dos Carbonos": "sp2",
+   "Descrição de aplicação prática ou exemplo de presença do composto": "Utilizado como odorizante nas indústrias farmacêuticas e alimentícias."
+ }
+]
