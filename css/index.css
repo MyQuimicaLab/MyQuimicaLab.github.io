@@ -1,0 +1,53 @@
+:root {
+    --iconSize: calc(15px + 1.7vw);
+    --canvasWidth: 800px;
+    --canvasHeight: 600px;
+}
+
+* {
+    user-select: none;
+}
+
+body {
+    margin: 0;
+    background-color: rgb(20, 20, 20);
+}
+
+main {
+    width: var(--canvasWidth);
+    height: var(--canvasHeight);
+    position: relative;
+}
+
+p {
+    margin: 0;
+    font-size: calc(16px + .4vw);
+    color: #4C4C4C;
+}
+
+ul {
+    background-color: rgba(0, 0, 0, .1);
+    border-radius: 1%;
+    padding: 1em;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: .5vw;
+}
+
+ul li {
+   display: inline-block;
+   list-style: none;
+   height: var(--iconSize);
+}
+
+ul li p {
+    font-family: 'Press Start 2P', cursive;
+    line-height: var(--iconSize);
+    margin-left: calc(1.2 * var(--iconSize));
+}
+ul li > img {
+    width: var(--iconSize);
+    position: absolute;
+    pointer-events: none;
+}

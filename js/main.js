@@ -1,12 +1,13 @@
 // Phaser config
 var config = {
-    type: Phaser.AUTO,
+    type: Phaser.WEBGL,
     width: 800,
     height: 600,
+    canvas: document.querySelector('canvas'),
     physics: {
         default: 'arcade',
         arcade: {
-            debug: false
+            debug: true
         }
     },
     scene: {
@@ -22,93 +23,78 @@ const playerVelocity = 160;
 
 // Var
 let game = new Phaser.Game(config);
-let movManager, player;
+let movController, inputController, player, resourceStands, tootipController, resourceCenterController;
 
 function preload() {
+    let browserSupportCheck = new BrowserSupportController(this.sys.game.device).checkCompatibility();
+
+    if(!browserSupportCheck.support) {
+        alert('Ops! Parece que o seu dispositivo ainda não possui suporte às seguintes tecnologias: \n'
+        + browserSupportCheck.notSupportedFeatures);
+
+        if(browserSupportCheck.notSupportedFeatures.includes('canvas')) {
+            window.location.replace('browser_doesnt_support.html');
+        }
+    }
 
     this.load.image('lab-background-tile', 'Assets/Objects/lab-background-tile.png');
-    this.load.image('resource-stand-1', 'Assets/Objects/resource-stand-1.png');
-    this.load.image('resource-stand-2', 'Assets/Objects/resource-stand-2.png');
+    this.load.image('reagents', 'Assets/Objects/resource-stand-1.png');
+    this.load.image('glassware', 'Assets/Objects/resource-stand-2.png');
     this.load.spritesheet('cientista', 
         'Assets/Characters/cientista-1.png',
         { frameWidth: 16, frameHeight: 20 }
     );
 
+    this.load.image('interact-tooltip', 'Assets/Tooltips/interact-tooltip.png');
+
 }
 
 function create() {
-
-    // Background
     this.add.tileSprite(0, 0, 1600, 1600, 'lab-background-tile').setScale(3);
 
-    // Player
-    player = this.physics.add.sprite(300, 200, 'cientista').setScale(3);
-    movManager = new MovementController(player, this.input.keyboard.createCursorKeys(), playerVelocity)
-    setPlayerAnimations();
+    resourceStands = this.physics.add.staticGroup();
+    resourceStands.name = "resource-stand-group";
 
-    // Resource Stands
-    let resourceCenters = this.physics.add.staticGroup();
-    resourceCenters.create(300, 100, "resource-stand-1").setScale(3).refreshBody();
-    resourceCenters.create(100, 100, "resource-stand-2").setScale(3).refreshBody();
+    resourceStands.create(400, 170, "reagents")
+        .setScale(3).refreshBody().setSize(90, 20).setOrigin(0.5, 0.20);
 
+    resourceStands.create(200, 200, "glassware")
+        .setScale(3).refreshBody().setSize(90, 50).setOrigin(0.5, 0.30)
+
+
+
+
+    player = new Player(this, 300, 200, 'cientista').setScale(3);
+ 
+    movController = new MovementController(player, this.input.keyboard.createCursorKeys(), playerVelocity)
+
+    resourceCenterController = new ResourceCenterController([
+        new ResourceCenter('reagents'),
+        new ResourceCenter('glassware'),
+        new ResourceCenter('constructionmaterial')
+    ], player.isCloseToElement, player);
+    
+    // Key events
+    inputController = new InputController(this.input);
+    inputController.addKeyEvent('Q', resourceCenterController.increment, 'reagents', resourceCenterController);
+    inputController.addKeyEvent('W', resourceCenterController.increment, 'glassware', resourceCenterController);
+    inputController.addKeyEvent('E', player.displayProximityMessage, resourceStands, player);
+
+    // Tooltip events
+    tootipController = new TooltipController(this, player, player.isCloseToGroup);
+    tootipController.addTooltipEvent('interact-tooltip', resourceStands)
+    
     // Collider
-    this.physics.add.collider(resourceCenters, player);
+    this.physics.add.collider(resourceStands, player);
+
+    this.children.bringToTop(player);
 }
 
 function update() {
-
-    movManager.update();
-
-}
-
-function setPlayerAnimations(){
-
-    game.anims.create({
-        key: 'left',
-        frames: [ { key: 'cientista', frame: 2 } ],
-        frameRate: 10,
-        repeat: -1
-    });
-
-    game.anims.create({
-        key: 'front',
-        frames: [ { key: 'cientista', frame: 0 } ],
-        frameRate: 10
-    });
-
-    game.anims.create({
-        key: 'back',
-        frames: [ { key: 'cientista', frame: 1 } ],
-        frameRate: 10
-    });
-
-    game.anims.create({
-        key: 'right',
-        frames: [{ key: 'cientista', frame: 2 } ],
-        frameRate: 5
-    });
-
-    game.anims.create({
-        key: 'moving-left',
-        frames: [ { key: 'cientista', frame: 5 }, { key: 'cientista', frame: 6 } ],
-        frameRate: 5
-    });
-
-    game.anims.create({
-        key: 'moving-front',
-        frames: [ { key: 'cientista', frame: 0 }, { key: 'cientista', frame: 3 } ],
-        frameRate: 5
-    });
-
-    game.anims.create({
-        key: 'moving-back',
-        frames: [ { key: 'cientista', frame: 1 }, { key: 'cientista', frame: 4 } ],
-        frameRate: 5
-    });
-
-    game.anims.create({
-        key: 'moving-right',
-        frames: [{ key: 'cientista', frame: 5 }, { key: 'cientista', frame: 6 } ],
-        frameRate: 5
-    });
+    //resourceCenterController.increment('reagents', 1);
+    //resourceCenterController.increment('glASSwAre', '2');
+    //resourceCenterController.increment('constructionMATERIAL', 3);
+    movController.update();
+    inputController.update();
+    tootipController.update();
 }

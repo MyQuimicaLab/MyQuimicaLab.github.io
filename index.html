@@ -1,15 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/index.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
     <title>Quimica Game</title>
 </head>
+
 <body>
-    
+    <main>
+        <ul>
+            <li>
+                <img src="Assets/Icons/rcAtom.png">
+                <p data-icon="Assets/Icons/rcAtom.png" name="rc_reagents">0</p>
+            </li>
+            <li>
+                <img src="Assets/Icons/rcFlask.png">
+                <p data-icon="Assets/Icons/rcAtom.png" name="rc_glassware">0</p>
+            </li>
+            <li>
+                <img src="Assets/Icons/rcConstruction.png">
+                <p data-icon="Assets/Icons/rcAtom.png" name="rc_constructionmaterial">0</p>
+            </li>
+        </ul>
+        <canvas>
+        </canvas>
+    </main>
     <script src="Phaser/phaser.min.js"></script>
-    <script src="js/MovementController.js"></script>
+    <script src="js/Controllers/BrowserSupportController.js"></script>
+    <script src="js/Controllers/MovementController.js"></script>
+    <script src="js/Controllers/InputController.js"></script>
+    <script src="js/Controllers/TooltipController.js"></script>
+    <script src="js/Controllers/ResourceCenterController.js"></script>
+    <script src="js/Model/Player.js"></script>
+    <script src="js/Model/ResourceCenter.js"></script>
     <script src="js/Main.js"></script>
 </body>
+
 </html>
