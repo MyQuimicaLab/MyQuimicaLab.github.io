@@ -5,17 +5,21 @@ class QuestionModalController {
         this._questionImageEl = document.querySelector("#questionScreen > img");
         this._alternativeListEl = document.querySelector("#questionScreen > ul");
         this.multiplier = 1;
+        this._questionNumber = 0;
     }
 
     displayQuestion(question) {
-        this._questionTitleEl.innerHTML = `Questão X (${this.multiplier}x)`;
+        this._questionNumber++;
+        const finalQuestionNumber = this._questionNumber < 10 ? "0" + this._questionNumber : this._questionNumber;
+
+        this._questionTitleEl.innerHTML = `Questão ${finalQuestionNumber} (${this.multiplier}x)`;
         this._questionDescriptionEl.innerHTML = question.description;
         this._questionImageEl.src = question.imgSrcPath ? question.imgSrcPath : "";
         this._populateAlternativesList(question.alternatives, question.correctAnswerIndex);
-       
     }
 
     _populateAlternativesList(alternatives, correctAnswerIndex) {
+        this._alternativeListEl.innerHTML = '';
         let currentAlternativeCharacter = "a";
         
         alternatives.map((questionAlternative, alternativeIndex) => {
@@ -30,7 +34,6 @@ class QuestionModalController {
             this._alternativeListEl.appendChild(alternativeEl);
             currentAlternativeCharacter = CharacterUtil.getNext(currentAlternativeCharacter);
         })
-    
     }
 
     _handleAnswer(answerIndex, correctAnswerIndex) {
