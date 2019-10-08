@@ -12,7 +12,7 @@
 
 <body>
     <main>
-        <section>
+        <section id="questionScreen">
             <h3>Questão 01 (1x)</h3>
             <p>Essa é a tela de questões. Se você, usuário, está vendo esse texto,
                 então provavelmente algo deu errado. Já que você está aqui, vou aproveitar
@@ -20,10 +20,6 @@
             </p>
             <img>
             <ul>  
-                <li><span>A)</span> Opção 1</li>
-                <li><span>B)</span> Opção 2</li>
-                <li><span>C)</span> Opção 3</li>
-                <li><span>D)</span> Opção 4</li>            
             </ul>
         </section>
         <ul>
@@ -44,6 +40,8 @@
         </canvas>
     </main>
     <script src="Phaser/phaser.min.js"></script>
+    <script src="js/Util/CharacterUtil.js"></script>
+    <script src="js/Controllers/QuestionModalController.js"></script>
     <script src="js/Controllers/BrowserSupportController.js"></script>
     <script src="js/Controllers/MovementController.js"></script>
     <script src="js/Controllers/InputController.js"></script>
