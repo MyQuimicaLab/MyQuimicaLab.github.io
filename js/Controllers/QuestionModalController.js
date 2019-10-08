@@ -20,12 +20,12 @@ class QuestionModalController {
 
     _populateAlternativesList(alternatives, correctAnswerIndex) {
         this._alternativeListEl.innerHTML = '';
-        let currentAlternativeCharacter = "a";
+        let currentAlternativeCharacter = "A";
         
         alternatives.map((questionAlternative, alternativeIndex) => {
             const alternativeEl = document.createElement('li');
 
-            alternativeEl.innerHTML = `${currentAlternativeCharacter.toUpperCase()}) ${questionAlternative}`;
+            alternativeEl.innerHTML = `${currentAlternativeCharacter}) ${questionAlternative}`;
 
             alternativeEl.addEventListener('click', () => {
                 this._handleAnswer(alternativeIndex, correctAnswerIndex);
