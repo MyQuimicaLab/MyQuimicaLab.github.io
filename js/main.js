@@ -50,6 +50,34 @@ function preload() {
 }
 
 function create() {
+    /** TEST CODE*/
+        
+    let questionController = new QuestionModalController();
+
+    questions = [
+        {
+            "description": "Essa é uma questão. Se esse texto está aparecendo na tela, então nem tudo deu errado!",
+            "alternatives": ["Opção 1", "Opção 2", "Opção 3", "Opção 4"],
+            "correctAnswerIndex": 1
+        },
+        {
+            "description": "Essa é uma questão. Se esse texto está aparecendo na tela, então nem tudo deu errado!",
+            "alternatives": ["Opção A", "Opção B", "Opção C", "Opção D"],
+            "correctAnswerIndex": 2
+        },
+        {
+            "description": "Essa é uma questão. Se esse texto está aparecendo na tela, então nem tudo deu errado!",
+            "alternatives": ["Opção W", "Opção X", "Opção Y", "Opção Z"],
+            "correctAnswerIndex": 0
+        }
+    ]
+
+    for(let q of questions) {
+            questionController.displayQuestion(q);
+    }
+
+
+    /**END OF TEST CODE */
     this.add.tileSprite(0, 0, 1600, 1600, 'lab-background-tile').setScale(3);
 
     resourceStands = this.physics.add.staticGroup();
