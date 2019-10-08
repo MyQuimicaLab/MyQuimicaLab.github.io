@@ -25,7 +25,55 @@ p {
     color: #4C4C4C;
 }
 
-ul {
+section {
+    font-family: 'Press Start 2P', cursive;
+    position: absolute;
+    background-color: rgba(0, 95, 0, .5);
+    color: #FAFAFA;
+    border: 5px solid #0E4C07;
+    z-index: 1000;
+}
+
+section p {
+    color: inherit;
+    font-size: 1em;
+    letter-spacing: -1px;
+    line-height: 1.5em;
+    margin: 2vw;
+    text-align: justify;
+}
+
+section h3 {
+    margin: 1vw;
+    text-align: center;
+    background-color: #0b4A0D;
+    padding: 1em 2em;
+}
+
+section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+section ul li {
+    cursor: pointer;
+    background-color: #0D630D;
+    margin: 1vw;
+    padding: 1em;
+    transition: 200ms;
+}
+
+section ul li > span {
+    background: green;
+    padding: .5em;
+    border-radius: 50%;
+}
+
+section ul li:hover {
+    background: #01560C;
+}
+
+main > ul {
     background-color: rgba(0, 0, 0, .1);
     border-radius: 1%;
     padding: 1em;
@@ -35,18 +83,18 @@ ul {
     margin: .5vw;
 }
 
-ul li {
+main > ul li {
    display: inline-block;
    list-style: none;
    height: var(--iconSize);
 }
 
-ul li p {
+main > ul li p {
     font-family: 'Press Start 2P', cursive;
     line-height: var(--iconSize);
     margin-left: calc(1.2 * var(--iconSize));
 }
-ul li > img {
+main > ul li > img {
     width: var(--iconSize);
     position: absolute;
     pointer-events: none;
