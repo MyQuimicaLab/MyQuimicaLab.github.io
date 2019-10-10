@@ -7,7 +7,7 @@ class FunctionalGroupQuestionType extends QuestionType {
         const choosenMolecule = molecules[RandomUtil.getRandomIntInRange(0, molecules.length - 1)],
               alternativeMolecules = super._getAlternativeMolecules(molecules, choosenMolecule, "grupoFuncional");
 
-        const questionDescription = `O extraordinário ${choosenMolecule["Nome IUPAC"]} é frequentemente
+        const questionDescription = `O extraordinário ${choosenMolecule["nomeIUPAC"]} é frequentemente
               ${choosenMolecule["aplicacaoPratica"]}, não é incrível?! Pode-se concluir que a função orgânica
               presente nesse composto é: `,
               questionAlternatives = ArrayUtil.shuffle([choosenMolecule, ...alternativeMolecules]).map(molecule => molecule.grupoFuncional),
