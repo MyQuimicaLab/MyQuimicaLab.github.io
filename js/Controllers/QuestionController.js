@@ -15,13 +15,12 @@ class QuestionController{
             modalController.displayQuestion(question.generateQuestion(moleculesArray));
             modalController.showQuestionModal();
         })
-        
     }
 
     async _getMolecules(){
 
-        let localSource = '../../Assets/question-database.json';
-        let remoteSource = `https://raw.githubusercontent.com/MyQuimicaLab/MyQuimicaLab.github.io/${this._repoBranch}/Assets/question-database.json`;
+        let localSource = '../../Assets/molecule-database.json';
+        let remoteSource = `https://raw.githubusercontent.com/MyQuimicaLab/MyQuimicaLab.github.io/${this._repoBranch}/Assets/molecule-database.json`;
         
         let jproxy = new JSONProxy();
     
@@ -33,9 +32,6 @@ class QuestionController{
     _chooseQuestionType(){
 
         let min = 0, max = 2;
-
-        Math.floor(Math.random() * (max - min + 1) ) + min;
-        
 
         switch (Math.floor(Math.random() * (max - min + 1) ) + min) {
            case 0:
