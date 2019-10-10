@@ -1,3 +1,5 @@
 class CharacterUtil {
-    static getNext = (character) => String.fromCharCode(character.charCodeAt(0) + 1);
+    static getNext (character) {
+        return String.fromCharCode(character.charCodeAt(0) + 1);
+    }
 }
