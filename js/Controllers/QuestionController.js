@@ -36,11 +36,12 @@ class QuestionController{
 
         Math.floor(Math.random() * (max - min + 1) ) + min;
         
+
         switch (Math.floor(Math.random() * (max - min + 1) ) + min) {
             case 0:
                 return new FunctionalGroupQuestionType();
             case 1:
-                return new FunctionalGroupQuestionType();
+                return new HybridizationQuestionType();
             case 2:
                 return new FunctionalGroupQuestionType();
         
