@@ -38,15 +38,15 @@ class QuestionController{
         
 
         switch (Math.floor(Math.random() * (max - min + 1) ) + min) {
-            case 0:
+           case 0:
                 return new FunctionalGroupQuestionType();
             case 1:
                 return new HybridizationQuestionType();
             case 2:
-                return new FunctionalGroupQuestionType();
+                return new NomenclatureQuestionType();
         
             default:
-                return new FunctionalGroupQuestionType();
+                return new NomenclatureQuestionType();
         }
     }
 }
