@@ -19,7 +19,8 @@ var config = {
 };
 
 // Const
-const playerVelocity = 160;
+const PLAYER_VELOCITY = 160;
+const CURRENT_BRANCH = 'question_screen';
 
 // Var
 let game = new Phaser.Game(config);
@@ -63,19 +64,21 @@ function create() {
 
     player = new Player(this, 300, 200, 'cientista').setScale(3);
  
-    movController = new MovementController(player, this.input.keyboard.createCursorKeys(), playerVelocity)
+    movController = new MovementController(player, this.input.keyboard.createCursorKeys(), PLAYER_VELOCITY)
 
     resourceCenterController = new ResourceCenterController([
         new ResourceCenter('reagents'),
         new ResourceCenter('glassware'),
         new ResourceCenter('constructionmaterial')
     ], player.isCloseToElement, player);
+
+    let questionController = new QuestionController(CURRENT_BRANCH);
     
     // Key events
     inputController = new InputController(this.input);
     inputController.addKeyEvent('Q', resourceCenterController.increment, 'reagents', resourceCenterController);
     inputController.addKeyEvent('W', resourceCenterController.increment, 'glassware', resourceCenterController);
-    inputController.addKeyEvent('E', QuestionModalController.showQuestionModal, resourceStands);
+    inputController.addKeyEvent('E', questionController.presentNewQuestion, null, questionController);
 
     // Tooltip events
     tootipController = new TooltipController(this, player, player.isCloseToGroup);
