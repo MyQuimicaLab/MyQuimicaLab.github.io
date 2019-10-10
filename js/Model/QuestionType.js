@@ -6,12 +6,15 @@ class QuestionType {
     }
 
     _getAlternativeMolecules(molecules, mainMolecule, filterField) {
-        const filteredMolecules = molecules.filter((molecule) => molecule[filterField] != mainMolecule[filterField]),
-              alternativeMolecules = [];
+        let filteredMolecules = molecules.filter((molecule) => molecule[filterField] != mainMolecule[filterField]);
+        const alternativeMolecules = [];
 
-        for(let i = 0; i < 3; i++) {
-           const randomMoleculeIndex = RandomUtil.getRandomIntInRange(0, filteredMolecules.length - 1);
-            alternativeMolecules.push(filteredMolecules[randomMoleculeIndex]);
+        while(alternativeMolecules.length != 3){
+           const randomMoleculeIndex = RandomUtil.getRandomIntInRange(0, filteredMolecules.length - 1),
+                  randomMolecule = filteredMolecules[randomMoleculeIndex];
+
+            alternativeMolecules.push(randomMolecule);
+            filteredMolecules = filteredMolecules.filter(molecule => molecule[filterField] != randomMolecule[filterField]);
         }
 
         return alternativeMolecules;
