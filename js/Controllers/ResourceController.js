@@ -1,4 +1,4 @@
-class ResourceCenterController {
+class ResourceController {
     constructor(resourceCollection, updateConditionCallback, conditionCallbackReference) {
         this.resourceCenterCollection = resourceCollection;
         if (updateConditionCallback != undefined)

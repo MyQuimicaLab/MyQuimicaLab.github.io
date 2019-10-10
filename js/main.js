@@ -24,7 +24,7 @@ const CURRENT_BRANCH = 'question_screen';
 
 // Var
 let game = new Phaser.Game(config);
-let movController, inputController, player, resourceStands, tootipController, resourceCenterController;
+let movController, inputController, player, resourceStands, tootipController, resourceController;
 
 function preload() {
     let browserSupportCheck = new BrowserSupportController(this.sys.game.device).checkCompatibility();
@@ -66,7 +66,7 @@ function create() {
  
     movController = new MovementController(player, this.input.keyboard.createCursorKeys(), PLAYER_VELOCITY)
 
-    resourceCenterController = new ResourceCenterController([
+    resourceController = new ResourceController([
         new ResourceCenter('reagents'),
         new ResourceCenter('glassware'),
         new ResourceCenter('constructionmaterial')
@@ -76,8 +76,8 @@ function create() {
     
     // Key events
     inputController = new InputController(this.input);
-    inputController.addKeyEvent('Q', resourceCenterController.increment, 'reagents', resourceCenterController);
-    inputController.addKeyEvent('W', resourceCenterController.increment, 'glassware', resourceCenterController);
+    inputController.addKeyEvent('Q', resourceController.increment, 'reagents', resourceController);
+    inputController.addKeyEvent('W', resourceController.increment, 'glassware', resourceController);
     inputController.addKeyEvent('E', questionController.presentNewQuestion, null, questionController);
 
     // Tooltip events
