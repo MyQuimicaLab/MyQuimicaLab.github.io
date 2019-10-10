@@ -5,13 +5,17 @@ class QuestionController{
     }
 
     presentNewQuestion(){
+        let moleculesPromise = this._getMolecules();
+        
+        moleculesPromise.then(moleculesArray => {
+            let modalController = new QuestionModalController();
 
-        let molecules = this._getMolecules();
-        let modalController = new QuestionModalController();
-
-        let question = this._chooseQuestionType();
-        modalController.displayQuestion(question.generateQuestion(molecules));
-        modalController.showQuestionModal();
+            let question = this._chooseQuestionType();
+    
+            modalController.displayQuestion(question.generateQuestion(moleculesArray));
+            modalController.showQuestionModal();
+        })
+        
     }
 
     async _getMolecules(){
@@ -22,6 +26,7 @@ class QuestionController{
         let jproxy = new JSONProxy();
     
         let result = await jproxy.getJSON(localSource);
+
         return result === undefined ? await jproxy.getJSON(remoteSource) : await result;
     }
 
