@@ -1,11 +1,16 @@
 class QuestionModalController {
     constructor() {
+        this._questionModalEl = document.querySelector("#questionScreen");
         this._questionTitleEl = document.querySelector("#questionScreen > h3");
         this._questionDescriptionEl = document.querySelector("#questionScreen > p");
         this._questionImageEl = document.querySelector("#questionScreen > img");
         this._alternativeListEl = document.querySelector("#questionScreen > ul");
         this.multiplier = 1;
         this._questionNumber = 0;
+    }
+
+    static showQuestionModal() {
+        document.querySelector("#questionScreen").style.display = 'inline';
     }
 
     displayQuestion(question) {

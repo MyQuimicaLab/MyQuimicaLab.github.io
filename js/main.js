@@ -50,34 +50,6 @@ function preload() {
 }
 
 function create() {
-    /** TEST CODE*/
-        
-    let questionController = new QuestionModalController();
-
-    questions = [
-        {
-            "description": "Essa é uma questão. Se esse texto está aparecendo na tela, então nem tudo deu errado!",
-            "alternatives": ["Opção 1", "Opção 2", "Opção 3", "Opção 4"],
-            "correctAnswerIndex": 1
-        },
-        {
-            "description": "Essa é uma questão. Se esse texto está aparecendo na tela, então nem tudo deu errado!",
-            "alternatives": ["Opção A", "Opção B", "Opção C", "Opção D"],
-            "correctAnswerIndex": 2
-        },
-        {
-            "description": "Essa é uma questão. Se esse texto está aparecendo na tela, então nem tudo deu errado!",
-            "alternatives": ["Opção W", "Opção X", "Opção Y", "Opção Z"],
-            "correctAnswerIndex": 0
-        }
-    ]
-
-    for(let q of questions) {
-            questionController.displayQuestion(q);
-    }
-
-
-    /**END OF TEST CODE */
     this.add.tileSprite(0, 0, 1600, 1600, 'lab-background-tile').setScale(3);
 
     resourceStands = this.physics.add.staticGroup();
@@ -88,9 +60,6 @@ function create() {
 
     resourceStands.create(200, 200, "glassware")
         .setScale(3).refreshBody().setSize(90, 50).setOrigin(0.5, 0.30)
-
-
-
 
     player = new Player(this, 300, 200, 'cientista').setScale(3);
  
@@ -106,7 +75,7 @@ function create() {
     inputController = new InputController(this.input);
     inputController.addKeyEvent('Q', resourceCenterController.increment, 'reagents', resourceCenterController);
     inputController.addKeyEvent('W', resourceCenterController.increment, 'glassware', resourceCenterController);
-    inputController.addKeyEvent('E', player.displayProximityMessage, resourceStands, player);
+    inputController.addKeyEvent('E', QuestionModalController.showQuestionModal, resourceStands);
 
     // Tooltip events
     tootipController = new TooltipController(this, player, player.isCloseToGroup);

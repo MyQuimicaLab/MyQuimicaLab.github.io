@@ -27,6 +27,7 @@ p {
 
 section {
     font-family: 'Press Start 2P', cursive;
+    display: none;
     position: absolute;
     background-color: rgba(0, 95, 0, .5);
     color: #FAFAFA;
