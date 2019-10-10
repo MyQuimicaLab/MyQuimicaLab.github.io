@@ -7,18 +7,18 @@ class InputController {
     update() {
         for (let keyboardKey of this._keyActions) {
             if (Phaser.Input.Keyboard.JustDown(keyboardKey.key)) {
-                let callback = keyboardKey.action.bind(keyboardKey.thisArg);
+                let callback = keyboardKey.action.bind(keyboardKey.objectReference);
                 callback(keyboardKey.actionArgument);
             }
         }
     }
 
-    addKeyEvent(key, eventCallback, eventArg = null, thisArg = null) {
+    addKeyEvent(key, eventCallback, eventArg = null, objectReference = null) {
         let tempObj = {
             key: this._sceneInput.keyboard.addKey(key),
             action: eventCallback,
             actionArgument: eventArg,
-            thisArg: thisArg
+            objectReference: objectReference
         }
 
         this._keyActions.push(tempObj);

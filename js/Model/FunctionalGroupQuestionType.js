@@ -1,5 +1,7 @@
 class FunctionalGroupQuestionType extends QuestionType {
-    constructor() {};
+    constructor() {
+        super();
+    };
 
     generateQuestion(molecules) {
         const choosenMolecule = molecules[RandomUtil.getRandomIntInRange(0, molecules.length - 1)],
