@@ -5,16 +5,29 @@ class QuestionController{
     }
 
     presentNewQuestion(){
-        let moleculesPromise = this._getMolecules();
-        
-        moleculesPromise.then(moleculesArray => {
-            let modalController = new QuestionModalController();
 
-            let question = this._chooseQuestionType();
+        if (this._moleculeArrayCache ==! undefined)
+            this._generateQuestion(moleculeArray);
+
+        else {
+
+            let moleculesPromise = this._getMolecules();
+            moleculesPromise.then(moleculeArray => {
+
+                this._moleculeArrayCache = moleculeArray;
+                this._generateQuestion(moleculeArray);
+            })
+        }
+    }
+
+    _generateQuestion(moleculeArray){
+
+        let modalController = new QuestionModalController();
     
-            modalController.displayQuestion(question.generateQuestion(moleculesArray));
-            modalController.showQuestionModal();
-        })
+        let question = this._chooseQuestionType();
+
+        modalController.displayQuestion(question.generateQuestion(moleculeArray));
+        modalController.showQuestionModal();
     }
 
     async _getMolecules(){
