@@ -9,7 +9,7 @@ class QuestionModalController {
         this._questionNumber = 0;
     }
 
-    static showQuestionModal() {
+    showQuestionModal() {
         document.querySelector("#questionScreen").style.display = 'inline';
     }
 
