@@ -70,7 +70,7 @@ function create() {
         new ResourceCenter('reagents'),
         new ResourceCenter('glassware'),
         new ResourceCenter('constructionmaterial')
-    ], player.isCloseToElement, player);
+    ], player.isCloseToGroup, resourceStands, player);
 
     let questionController = new QuestionController(CURRENT_BRANCH);
     

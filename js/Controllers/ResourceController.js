@@ -1,8 +1,10 @@
 class ResourceController {
-    constructor(resourceCollection, updateConditionCallback, conditionCallbackReference) {
+    constructor(resourceCollection, updateConditionCallback, conditionArg, conditionCallbackReference) {
         this.resourceCenterCollection = resourceCollection;
-        if (updateConditionCallback != undefined)
+        if (updateConditionCallback != undefined) {
             this.updateConditionCallback = updateConditionCallback.bind(conditionCallbackReference);
+            this.conditionArg = conditionArg;
+        }
     }
 
     increment(resourceName, valueToIncrement = 1) {
@@ -13,7 +15,7 @@ class ResourceController {
 
         
 
-        if (this.updateConditionCallback != undefined && this.updateConditionCallback(resourceName)) {
+        if (this.updateConditionCallback != undefined && this.updateConditionCallback(this.conditionArg)) {
             
             if(!isNaN(valueToIncrement) && correspondentResourceCenter) {
                 correspondentResourceCenter.incrementResourceAmount(Math.ceil(valueToIncrement));
@@ -21,6 +23,7 @@ class ResourceController {
     
                 resourceAmountContainer.innerHTML = correspondentResourceCenter.getResourceAmount();
                 console.log("Resource " + resourceName + " incremented by " + valueToIncrement);
+                console.log("New amount: " + correspondentResourceCenter.getResourceAmount());
                 
             }
         }
