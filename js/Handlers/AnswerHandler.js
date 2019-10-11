@@ -1,8 +1,6 @@
 class AnswerHandler{
 
-    constructor(questionController, resourceController){
-
-        this._questionController = questionController;
+    constructor(resourceController){
         this._resourceController = resourceController;
 
         this._resourceAmountPerAnswer = 10;
@@ -24,10 +22,6 @@ class AnswerHandler{
         this._handle();
     }
 
-    _handle(){
-        
-        this._questionController.presentNewQuestion();
-    }
 
     get resourceMultiplier(){
         return this._resourceMultiplier;
