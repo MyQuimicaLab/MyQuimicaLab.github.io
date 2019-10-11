@@ -72,13 +72,13 @@ function create() {
         new ResourceCenter('constructionmaterial')
     ], player.isCloseToGroup, resourceStands, player);
 
-    let questionController = new QuestionController(CURRENT_BRANCH);
+    let questionController = new QuestionController(CURRENT_BRANCH, resourceController);
     
     // Key events
     inputController = new InputController(this.input);
     inputController.addKeyEvent('Q', resourceController.increment, 'reagents', resourceController);
     inputController.addKeyEvent('W', resourceController.increment, 'glassware', resourceController);
-    inputController.addKeyEvent('E', questionController.presentNewQuestion, null, questionController);
+    inputController.addKeyEvent('E', questionController.presentNewQuestion, resourceController, questionController);
 
     // Tooltip events
     tootipController = new TooltipController(this, player, player.isCloseToGroup);
