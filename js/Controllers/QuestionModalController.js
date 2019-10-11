@@ -1,11 +1,12 @@
 class QuestionModalController {
-    constructor() {
+    constructor(answerHandler) {
         this._questionModalEl = document.querySelector("#questionScreen");
         this._questionTitleEl = document.querySelector("#questionScreen > h3");
         this._questionDescriptionEl = document.querySelector("#questionScreen > p");
         this._questionImageEl = document.querySelector("#questionScreen > img");
         this._alternativeListEl = document.querySelector("#questionScreen > ul");
         this.multiplier = 1;
+        this._answerHandler = answerHandler;
         this._questionNumber = 0;
     }
 
@@ -33,22 +34,15 @@ class QuestionModalController {
             alternativeEl.innerHTML = `${currentAlternativeCharacter}) ${questionAlternative}`;
 
             alternativeEl.addEventListener('click', () => {
-                this._handleAnswer(alternativeIndex, correctAnswerIndex);
+                this._answerHandler.handleAnswer(alternativeIndex, correctAnswerIndex);
+                const isAnswerCorrect = this._answerHandler.isAnswerCorrect();
+
+                alert('RESPOSTA CORRETA? ' + isAnswerCorrect); 
             })
 
             this._alternativeListEl.appendChild(alternativeEl);
             currentAlternativeCharacter = CharacterUtil.getNext(currentAlternativeCharacter);
         })
     }
-
-    _handleAnswer(answerIndex, correctAnswerIndex) {
-        if(this._isAnswerCorrect(answerIndex, correctAnswerIndex)) {
-            this.multiplier += 0.25;
-        } else {
-            this.multiplier = 1;
-        }
-    } 
-
-    _isAnswerCorrect = (answerIndex, correctAnswerIndex) => answerIndex == correctAnswerIndex;
 
 }

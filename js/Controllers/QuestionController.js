@@ -24,7 +24,7 @@ class QuestionController{
 
     _generateQuestion(moleculeArray){
 
-        let modalController = new QuestionModalController();
+        let modalController = new QuestionModalController(this._answerHandler);
     
         let question = this._chooseQuestionType();
 
