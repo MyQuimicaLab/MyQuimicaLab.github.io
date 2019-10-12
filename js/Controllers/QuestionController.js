@@ -4,6 +4,7 @@ class QuestionController{
         this._repoBranch = repoBranch;
         this._resourceController = resourceController;
         this._answerHandler = new AnswerHandler(resourceController);
+        this._modalController = new QuestionModalController(this._answerHandler);
     }
 
     presentNewQuestion(){
@@ -22,14 +23,11 @@ class QuestionController{
         }
     }
 
-    _generateQuestion(moleculeArray){
-
-        let modalController = new QuestionModalController(this._answerHandler);
-    
+    _generateQuestion(moleculeArray){    
         let question = this._chooseQuestionType();
 
-        modalController.displayQuestion(question.generateQuestion(moleculeArray));
-        modalController.showQuestionModal();
+        this._modalController.displayQuestion(question.generateQuestion(moleculeArray));
+        this._modalController.showQuestionModal();
     }
 
     async _getMolecules(){

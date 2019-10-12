@@ -7,7 +7,7 @@ class QuestionModalController {
         this._alternativeListEl = document.querySelector("#questionScreen > ul");
         this.multiplier = 1;
         this._answerHandler = answerHandler;
-        this._questionNumber = 0;
+        this._questionNumber = 1;
     }
 
     showQuestionModal() {
@@ -22,6 +22,7 @@ class QuestionModalController {
         this._questionDescriptionEl.innerHTML = question.description;
         this._questionImageEl.src = question.imgSrcPath ? question.imgSrcPath : "";
         this._populateAlternativesList(question.alternatives, question.correctAnswerIndex);
+        this._questionNumber++;
     }
 
     _populateAlternativesList(alternatives, correctAnswerIndex) {
