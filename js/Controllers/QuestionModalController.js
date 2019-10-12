@@ -37,13 +37,25 @@ class QuestionModalController {
             alternativeEl.addEventListener('click', () => {
                 this._answerHandler.handleAnswer(alternativeIndex, correctAnswerIndex);
                 const isAnswerCorrect = this._answerHandler.isAnswerCorrect();
-
+                this._highlightAnswers(alternativeIndex, correctAnswerIndex);
                 alert('RESPOSTA CORRETA? ' + isAnswerCorrect); 
             })
 
             this._alternativeListEl.appendChild(alternativeEl);
             currentAlternativeCharacter = CharacterUtil.getNext(currentAlternativeCharacter);
         })
+    }
+
+    _highlightAnswers(attemptIndex, correctAnswerIndex) {
+        const correctListItem = this._alternativeListEl.children[correctAnswerIndex];
+
+        if(attemptIndex !== correctAnswerIndex) {
+            const attemptListItem = this._alternativeListEl.children[attemptIndex];
+
+            attemptListItem.style.backgroundColor = '#A81826';
+        }
+
+        correctListItem.style.backgroundColor = '#0DA400';
     }
 
 }

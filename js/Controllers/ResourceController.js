@@ -8,12 +8,9 @@ class ResourceController {
     }
 
     increment(resourceName, valueToIncrement = 1) {
-
         resourceName = resourceName.toLowerCase();
 
         let correspondentResourceCenter = this.resourceCenterCollection.filter(rc => rc.getResourceID() == resourceName)[0];
-
-        
 
         if (this.updateConditionCallback != undefined && this.updateConditionCallback(this.conditionArg)) {
             
