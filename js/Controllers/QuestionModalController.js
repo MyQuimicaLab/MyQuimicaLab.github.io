@@ -5,7 +5,6 @@ class QuestionModalController {
         this._questionDescriptionEl = document.querySelector("#questionScreen > p");
         this._questionImageEl = document.querySelector("#questionScreen > img");
         this._alternativeListEl = document.querySelector("#questionScreen > ul");
-        this.multiplier = 1;
         this._answerHandler = answerHandler;
         this._questionNumber = 1;
     }
@@ -15,13 +14,14 @@ class QuestionModalController {
     }
 
     displayQuestion(question) {
-        this._questionNumber++;
-        const finalQuestionNumber = this._questionNumber < 10 ? "0" + this._questionNumber : this._questionNumber;
+        const finalQuestionNumber = this._questionNumber < 10 ? "0" + this._questionNumber : this._questionNumber,
+              resourceMultiplier = this._answerHandler.resourceMultiplier;
 
-        this._questionTitleEl.innerHTML = `Questão ${finalQuestionNumber} (${this.multiplier}x)`;
+        this._questionTitleEl.innerHTML = `Questão ${finalQuestionNumber} (${resourceMultiplier}x)`;
         this._questionDescriptionEl.innerHTML = question.description;
         this._questionImageEl.src = question.imgSrcPath ? question.imgSrcPath : "";
         this._populateAlternativesList(question.alternatives, question.correctAnswerIndex);
+
         this._questionNumber++;
     }
 
