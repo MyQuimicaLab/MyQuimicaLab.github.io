@@ -36,4 +36,8 @@ class AnswerHandler{
         return this._resourceMultiplier;
     }
 
+    resetMultiplier() {
+        this._resourceMultiplier = 1;
+    }
+
 }   

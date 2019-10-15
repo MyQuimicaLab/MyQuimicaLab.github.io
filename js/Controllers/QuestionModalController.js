@@ -5,12 +5,19 @@ class QuestionModalController {
         this._questionDescriptionEl = document.querySelector("#questionScreen > p");
         this._questionImageEl = document.querySelector("#questionScreen > img");
         this._alternativeListEl = document.querySelector("#questionScreen > ul");
+        this._closeModalBtnEl = document.getElementById('closeQuestionScreenBtn');
         this._answerHandler = answerHandler;
         this._questionNumber = 1;
+
+        this._delegateCloseEvents();
     }
 
     showQuestionModal() {
-        document.querySelector("#questionScreen").style.display = 'inline';
+       this._questionModalEl.style.display = 'inline';
+    }
+
+    closeQuestionModal() {
+        this._questionModalEl.style.display = 'none';
     }
 
     displayQuestion(question) {
@@ -56,6 +63,25 @@ class QuestionModalController {
         }
 
         correctListItem.style.backgroundColor = '#0DA400';
+    }
+
+    _delegateCloseEvents() {
+        this._closeModalBtnEl.addEventListener('click', () => {
+            this.closeQuestionModal();
+            this._handleQuit();
+        })
+
+        document.addEventListener('keydown', (evt) => {
+            if(evt.key === 'Escape') {
+                this.closeQuestionModal();
+                this._handleQuit();
+            }         
+        })
+    }
+
+    _handleQuit() {
+        this._questionNumber = 1;
+        this._answerHandler.resetMultiplier();
     }
 
 }
