@@ -35,6 +35,25 @@ section {
     z-index: 1000;
 }
 
+#closeQuestionScreenBtn {
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+    position: absolute;
+    top: -1vw;
+    right: -.5vw;
+    padding: .25em;
+    color: white;
+    background: #A24C4C;
+    font-size: calc(16px + .4vw);
+    text-align: center;;
+    transition: 100ms;
+}
+
+#closeQuestionScreenBtn:hover {
+    background: #8A1F1F;
+}
+
 section p {
     color: inherit;
     font-size: 1em;
