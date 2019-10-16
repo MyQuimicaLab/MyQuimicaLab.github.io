@@ -7,6 +7,7 @@ class QuestionModalController {
         this._alternativeListEl = document.querySelector("#questionScreen > ul");
         this._closeModalBtnEl = document.getElementById('closeQuestionScreenBtn');
         this._nextQuestionSpanEl = document.querySelector("#questionScreen > span");
+        this._hasAnswered = false;
         this._answerHandler = answerHandler;
         this._questionNumber = 1;
 
@@ -31,6 +32,7 @@ class QuestionModalController {
         this._populateAlternativesList(question.alternatives, question.correctAnswerIndex);
 
         this._questionNumber++;
+        this._hasAnswered = false;
         this._nextQuestionSpanEl.innerHTML = "Aperte 'E' para ir para pular";
     }
 
@@ -44,9 +46,12 @@ class QuestionModalController {
             alternativeEl.innerHTML = `${currentAlternativeCharacter}) ${questionAlternative}`;
 
             alternativeEl.addEventListener('click', () => {
-                this._answerHandler.handleAnswer(alternativeIndex, correctAnswerIndex);
-                this._highlightAnswers(alternativeIndex, correctAnswerIndex);
+                if(!this._hasAnswered) {
+                    this._answerHandler.handleAnswer(alternativeIndex, correctAnswerIndex);
+                    this._highlightAnswers(alternativeIndex, correctAnswerIndex);
+                    this._hasAnswered = true;
                     this._nextQuestionSpanEl.innerHTML = "Aperte 'E' para ir para a próxima questão";
+                }
             })
 
             this._alternativeListEl.appendChild(alternativeEl);
@@ -68,19 +73,18 @@ class QuestionModalController {
 
     _delegateCloseEvents() {
         this._closeModalBtnEl.addEventListener('click', () => {
-            this.closeQuestionModal();
             this._handleQuit();
         })
 
         document.addEventListener('keydown', (evt) => {
             if(evt.key === 'Escape') {
-                this.closeQuestionModal();
                 this._handleQuit();
             }         
         })
     }
 
     _handleQuit() {
+        this.closeQuestionModal();
         this._questionNumber = 1;
         this._answerHandler.resetMultiplier();
     }
