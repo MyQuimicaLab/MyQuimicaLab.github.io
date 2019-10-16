@@ -43,9 +43,7 @@ class QuestionModalController {
 
             alternativeEl.addEventListener('click', () => {
                 this._answerHandler.handleAnswer(alternativeIndex, correctAnswerIndex);
-                const isAnswerCorrect = this._answerHandler.isAnswerCorrect();
                 this._highlightAnswers(alternativeIndex, correctAnswerIndex);
-                alert('RESPOSTA CORRETA? ' + isAnswerCorrect); 
             })
 
             this._alternativeListEl.appendChild(alternativeEl);
