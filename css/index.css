@@ -54,6 +54,15 @@ section {
     background: #8A1F1F;
 }
 
+section > span {
+    cursor: help;
+    color: inherit;
+    font-family: inherit;
+    transition: 100ms;
+    display: block;
+    text-align: center;
+}
+
 section p {
     color: inherit;
     font-size: 1em;
@@ -63,11 +72,14 @@ section p {
     text-align: justify;
 }
 
-section h3 {
-    margin: 1vw;
-    text-align: center;
+section h3, section > span {
     background-color: #0b4A0D;
     padding: 1em 2em;
+    margin: 1vw;
+}
+
+section h3 {
+    text-align: center;
 }
 
 section ul {
@@ -89,7 +101,7 @@ section ul li > span {
     border-radius: 50%;
 }
 
-section ul li:hover {
+section ul li:hover, section > span:hover {
     background: #01560C;
 }
 
