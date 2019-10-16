@@ -6,6 +6,7 @@ class QuestionModalController {
         this._questionImageEl = document.querySelector("#questionScreen > img");
         this._alternativeListEl = document.querySelector("#questionScreen > ul");
         this._closeModalBtnEl = document.getElementById('closeQuestionScreenBtn');
+        this._nextQuestionSpanEl = document.querySelector("#questionScreen > span");
         this._answerHandler = answerHandler;
         this._questionNumber = 1;
 
@@ -30,6 +31,7 @@ class QuestionModalController {
         this._populateAlternativesList(question.alternatives, question.correctAnswerIndex);
 
         this._questionNumber++;
+        this._nextQuestionSpanEl.innerHTML = "Aperte 'E' para ir para pular";
     }
 
     _populateAlternativesList(alternatives, correctAnswerIndex) {
@@ -44,6 +46,7 @@ class QuestionModalController {
             alternativeEl.addEventListener('click', () => {
                 this._answerHandler.handleAnswer(alternativeIndex, correctAnswerIndex);
                 this._highlightAnswers(alternativeIndex, correctAnswerIndex);
+                    this._nextQuestionSpanEl.innerHTML = "Aperte 'E' para ir para a próxima questão";
             })
 
             this._alternativeListEl.appendChild(alternativeEl);
