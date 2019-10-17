@@ -1,0 +1,92 @@
+class QuestionModalController {
+    constructor(answerHandler) {
+        this._questionModalEl = document.querySelector("#questionScreen");
+        this._questionTitleEl = document.querySelector("#questionScreen > h3");
+        this._questionDescriptionEl = document.querySelector("#questionScreen > p");
+        this._questionImageEl = document.querySelector("#questionScreen > img");
+        this._alternativeListEl = document.querySelector("#questionScreen > ul");
+        this._closeModalBtnEl = document.getElementById('closeQuestionScreenBtn');
+        this._nextQuestionSpanEl = document.querySelector("#questionScreen > span");
+        this._hasAnswered = false;
+        this._answerHandler = answerHandler;
+        this._questionNumber = 1;
+
+        this._delegateCloseEvents();
+    }
+
+    showQuestionModal() {
+       this._questionModalEl.style.display = 'inline';
+    }
+
+    closeQuestionModal() {
+        this._questionModalEl.style.display = 'none';
+    }
+
+    displayQuestion(question) {
+        const finalQuestionNumber = this._questionNumber < 10 ? "0" + this._questionNumber : this._questionNumber,
+              resourceMultiplier = this._answerHandler.resourceMultiplier;
+
+        this._questionTitleEl.innerHTML = `Questão ${finalQuestionNumber} (${resourceMultiplier}x)`;
+        this._questionDescriptionEl.innerHTML = question.description;
+        this._questionImageEl.src = question.imgSrcPath ? question.imgSrcPath : "";
+        this._populateAlternativesList(question.alternatives, question.correctAnswerIndex);
+
+        this._questionNumber++;
+        this._hasAnswered = false;
+        this._nextQuestionSpanEl.innerHTML = "Aperte 'E' para ir para pular";
+    }
+
+    _populateAlternativesList(alternatives, correctAnswerIndex) {
+        this._alternativeListEl.innerHTML = '';
+        let currentAlternativeCharacter = "A";
+        
+        alternatives.map((questionAlternative, alternativeIndex) => {
+            const alternativeEl = document.createElement('li');
+
+            alternativeEl.innerHTML = `${currentAlternativeCharacter}) ${questionAlternative}`;
+
+            alternativeEl.addEventListener('click', () => {
+                if(!this._hasAnswered) {
+                    this._answerHandler.handleAnswer(alternativeIndex, correctAnswerIndex);
+                    this._highlightAnswers(alternativeIndex, correctAnswerIndex);
+                    this._hasAnswered = true;
+                    this._nextQuestionSpanEl.innerHTML = "Aperte 'E' para ir para a próxima questão";
+                }
+            })
+
+            this._alternativeListEl.appendChild(alternativeEl);
+            currentAlternativeCharacter = CharacterUtil.getNext(currentAlternativeCharacter);
+        })
+    }
+
+    _highlightAnswers(attemptIndex, correctAnswerIndex) {
+        const correctListItem = this._alternativeListEl.children[correctAnswerIndex];
+
+        if(attemptIndex !== correctAnswerIndex) {
+            const attemptListItem = this._alternativeListEl.children[attemptIndex];
+
+            attemptListItem.style.backgroundColor = '#A81826';
+        }
+
+        correctListItem.style.backgroundColor = '#0DA400';
+    }
+
+    _delegateCloseEvents() {
+        this._closeModalBtnEl.addEventListener('click', () => {
+            this._handleQuit();
+        })
+
+        document.addEventListener('keydown', (evt) => {
+            if(evt.key === 'Escape') {
+                this._handleQuit();
+            }         
+        })
+    }
+
+    _handleQuit() {
+        this.closeQuestionModal();
+        this._questionNumber = 1;
+        this._answerHandler.resetMultiplier();
+    }
+
+}

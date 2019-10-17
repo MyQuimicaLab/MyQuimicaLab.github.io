@@ -19,11 +19,12 @@ var config = {
 };
 
 // Const
-const playerVelocity = 160;
+const PLAYER_VELOCITY = 160;
+const CURRENT_BRANCH = 'question_screen';
 
 // Var
 let game = new Phaser.Game(config);
-let movController, inputController, player, resourceStands, tootipController, resourceCenterController;
+let movController, inputController, player, resourceStands, tootipController, resourceController;
 
 function preload() {
     let browserSupportCheck = new BrowserSupportController(this.sys.game.device).checkCompatibility();
@@ -61,24 +62,23 @@ function create() {
     resourceStands.create(200, 200, "glassware")
         .setScale(3).refreshBody().setSize(90, 50).setOrigin(0.5, 0.30)
 
-
-
-
     player = new Player(this, 300, 200, 'cientista').setScale(3);
  
-    movController = new MovementController(player, this.input.keyboard.createCursorKeys(), playerVelocity)
+    movController = new MovementController(player, this.input.keyboard.createCursorKeys(), PLAYER_VELOCITY)
 
-    resourceCenterController = new ResourceCenterController([
+    resourceController = new ResourceController([
         new ResourceCenter('reagents'),
         new ResourceCenter('glassware'),
         new ResourceCenter('constructionmaterial')
-    ], player.isCloseToElement, player);
+    ], player.isCloseToGroup, resourceStands, player);
+
+    let questionController = new QuestionController(CURRENT_BRANCH, resourceController);
     
     // Key events
     inputController = new InputController(this.input);
-    inputController.addKeyEvent('Q', resourceCenterController.increment, 'reagents', resourceCenterController);
-    inputController.addKeyEvent('W', resourceCenterController.increment, 'glassware', resourceCenterController);
-    inputController.addKeyEvent('E', player.displayProximityMessage, resourceStands, player);
+    inputController.addKeyEvent('Q', resourceController.increment, 'reagents', resourceController);
+    inputController.addKeyEvent('W', resourceController.increment, 'glassware', resourceController);
+    inputController.addKeyEvent('E', questionController.presentNewQuestion, resourceController, questionController);
 
     // Tooltip events
     tootipController = new TooltipController(this, player, player.isCloseToGroup);

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
     <meta charset="UTF-8">
@@ -12,6 +12,18 @@
 
 <body>
     <main>
+        <section id="questionScreen">
+            <button id="closeQuestionScreenBtn">X</button>
+            <h3>Questão 01 (1x)</h3>
+            <p>Essa é a tela de questões. Se você, usuário, está vendo esse texto,
+                então provavelmente algo deu errado. Já que você está aqui, vou aproveitar
+                e desejar uma ótima experiência com esse jogo. Foi feito através de muito esforço. :)
+            </p>
+            <img>
+            <ul>  
+            </ul>
+            <span>Aperte 'E' para pular</span>
+        </section>
         <ul>
             <li>
                 <img src="Assets/Icons/rcAtom.png">
@@ -30,14 +42,26 @@
         </canvas>
     </main>
     <script src="Phaser/phaser.min.js"></script>
+    <script src="js/Util/CharacterUtil.js"></script>
+    <script src="js/Util/RandomUtil.js"></script>
+    <script src="js/Util/ArrayUtil.js"></script>
+    <script src="js/Controllers/QuestionModalController.js"></script>
     <script src="js/Controllers/BrowserSupportController.js"></script>
     <script src="js/Controllers/MovementController.js"></script>
     <script src="js/Controllers/InputController.js"></script>
     <script src="js/Controllers/TooltipController.js"></script>
-    <script src="js/Controllers/ResourceCenterController.js"></script>
+    <script src="js/Controllers/ResourceController.js"></script>
+    <script src="js/Handlers/AnswerHandler.js"></script>
+    <script src="js/Proxy/JSONProxy.js"></script>
     <script src="js/Model/Player.js"></script>
     <script src="js/Model/ResourceCenter.js"></script>
+    <script src="js/Model/QuestionType.js"></script>
+    <script src="js/Model/FunctionalGroupQuestionType.js"></script>
+    <script src="js/Model/HybridizationQuestionType.js"></script>
+    <script src="js/Model/NomenclatureQuestionType.js"></script>
+    <script src="js/Controllers/QuestionController.js"></script>
     <script src="js/Main.js"></script>
+    
 </body>
 
 </html>

@@ -14,7 +14,7 @@ class TooltipController {
             if (tooltip.object != undefined)
                 this.updateTooltipLocation(tooltip);
 
-            if (this._triggerCallback(this._player, tooltip.group)) {
+            if (this._triggerCallback(tooltip.group, player)) {
                 
                 if (tooltip.object == undefined || !tooltip.object.active) {
                     tooltip.object = this._scene.add

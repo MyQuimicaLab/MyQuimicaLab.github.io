@@ -25,7 +25,87 @@ p {
     color: #4C4C4C;
 }
 
-ul {
+section {
+    font-family: 'Press Start 2P', cursive;
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 95, 0, .5);
+    color: #FAFAFA;
+    border: 5px solid #0E4C07;
+    z-index: 1000;
+}
+
+#closeQuestionScreenBtn {
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+    position: absolute;
+    top: -1vw;
+    right: -.5vw;
+    padding: .25em;
+    color: white;
+    background: #A24C4C;
+    font-size: calc(16px + .4vw);
+    text-align: center;;
+    transition: 100ms;
+}
+
+#closeQuestionScreenBtn:hover {
+    background: #8A1F1F;
+}
+
+section > span {
+    cursor: help;
+    color: inherit;
+    font-family: inherit;
+    transition: 100ms;
+    display: block;
+    text-align: center;
+}
+
+section p {
+    color: inherit;
+    font-size: 1em;
+    letter-spacing: -1px;
+    line-height: 1.5em;
+    margin: 2vw;
+    text-align: justify;
+}
+
+section h3, section > span {
+    background-color: #0b4A0D;
+    padding: 1em 2em;
+    margin: 1vw;
+}
+
+section h3 {
+    text-align: center;
+}
+
+section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+section ul li {
+    cursor: pointer;
+    background-color: #0D630D;
+    margin: 1vw;
+    padding: 1em;
+    transition: 200ms;
+}
+
+section ul li > span {
+    background: green;
+    padding: .5em;
+    border-radius: 50%;
+}
+
+section ul li:hover, section > span:hover {
+    background: #01560C;
+}
+
+main > ul {
     background-color: rgba(0, 0, 0, .1);
     border-radius: 1%;
     padding: 1em;
@@ -35,18 +115,18 @@ ul {
     margin: .5vw;
 }
 
-ul li {
+main > ul li {
    display: inline-block;
    list-style: none;
    height: var(--iconSize);
 }
 
-ul li p {
+main > ul li p {
     font-family: 'Press Start 2P', cursive;
     line-height: var(--iconSize);
     margin-left: calc(1.2 * var(--iconSize));
 }
-ul li > img {
+main > ul li > img {
     width: var(--iconSize);
     position: absolute;
     pointer-events: none;

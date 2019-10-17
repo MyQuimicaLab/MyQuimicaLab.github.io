@@ -69,12 +69,6 @@ class Player extends Phaser.Physics.Arcade.Sprite {
         }
     }
 
-    isCloseToGroup(player = this, group){
-        let closeObjects = player.getCloseObjects();//player._scene.physics.overlapRect(player.x - player.width, player.y - player.height, 100, 100, false, true);
-        let nearestResourceCenter = closeObjects.filter(object => group.getChildren().includes(object.gameObject))[0];
-        return nearestResourceCenter != undefined;
-    }
-
     getCloseObjects(playerReference = this, desiredOverlapWidth = 150, desiredOverlapHeight) {
         let overlapWidth =  desiredOverlapWidth,
             overlapHeight = desiredOverlapHeight ? desiredOverlapHeight : desiredOverlapWidth,
@@ -82,5 +76,11 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
         return playerReference._scene.physics.overlapRect(playerReference.x - boundOffset, 
             playerReference.y + playerReference.height - boundOffset, overlapWidth, overlapHeight, false, true);
+    }
+
+    isCloseToGroup(group, player = this){
+        let closeObjects = player.getCloseObjects();//player._scene.physics.overlapRect(player.x - player.width, player.y - player.height, 100, 100, false, true);
+        let nearestResourceCenter = closeObjects.filter(object => group.getChildren().includes(object.gameObject))[0];
+        return nearestResourceCenter != undefined;
     }
 }
