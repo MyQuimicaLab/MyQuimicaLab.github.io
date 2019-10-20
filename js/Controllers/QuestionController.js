@@ -2,9 +2,8 @@ class QuestionController{
 
     constructor(repoBranch = 'master', resourceController) {
         this._repoBranch = repoBranch;
-        this._resourceController = resourceController;
-        this._answerHandler = new AnswerHandler(resourceController);
-        this._modalController = new QuestionModalController(this._answerHandler);
+        let answerHandler = new AnswerHandler(resourceController);
+        this._modalController = new QuestionModalController(answerHandler);
     }
 
     presentNewQuestion(){
