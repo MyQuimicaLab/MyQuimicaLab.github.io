@@ -22,14 +22,15 @@ main {
 p {
     margin: 0;
     font-size: calc(16px + .4vw);
-    color: #4C4C4C;
+    color: rgb(242, 255, 250);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.60);
 }
 
 section {
     font-family: 'Press Start 2P', cursive;
     display: none;
     position: absolute;
-    background-color: rgba(0, 95, 0, .5);
+    background-color: rgba(30, 119, 30, 0.87);
     color: #FAFAFA;
     border: 5px solid #0E4C07;
     z-index: 1000;
@@ -66,6 +67,7 @@ section > span {
 section p {
     color: inherit;
     font-size: 1em;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.60);
     letter-spacing: -1px;
     line-height: 1.5em;
     margin: 2vw;
@@ -102,12 +104,12 @@ section ul li > span {
 }
 
 section ul li:hover, section > span:hover {
-    background: #01560C;
+    background: rgb(1, 86, 12);
 }
 
 main > ul {
-    background-color: rgba(0, 0, 0, .1);
-    border-radius: 1%;
+    background-color: rgba(0, 102, 14, 0.747);
+    border-radius: 5em;
     padding: 1em;
     position: absolute;
     right: 0;
@@ -125,6 +127,7 @@ main > ul li p {
     font-family: 'Press Start 2P', cursive;
     line-height: var(--iconSize);
     margin-left: calc(1.2 * var(--iconSize));
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.60);
 }
 main > ul li > img {
     width: var(--iconSize);
