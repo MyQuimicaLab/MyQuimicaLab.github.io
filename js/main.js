@@ -72,7 +72,7 @@ function create() {
         .setScale(3).refreshBody().setSize(90, 50).setOrigin(0.5, 0.30)
     
 
-    player = new Player(this, 300, 200, 'cientista').setScale(3);
+    player = new Player(this, 400, 300, 'cientista').setScale(3);
  
     movController = new MovementController(player, this.input.keyboard.createCursorKeys(), PLAYER_VELOCITY)
 
