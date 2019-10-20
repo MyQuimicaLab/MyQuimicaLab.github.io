@@ -39,8 +39,10 @@ function preload() {
     }
 
     this.load.image('lab-background-tile', 'Assets/Objects/lab-background-tile.png');
-    this.load.image('reagents', 'Assets/Objects/resource-stand-1.png');
+    this.load.image('lab-background-stuff', 'Assets/Objects/lab-background-stuff.png');
+    this.load.image('constructionMaterial', 'Assets/Objects/resource-stand-1.png');
     this.load.image('glassware', 'Assets/Objects/resource-stand-2.png');
+    this.load.image('reagents', 'Assets/Objects/resource-stand-3.png');
     this.load.spritesheet('cientista', 
         'Assets/Characters/cientista-1.png',
         { frameWidth: 16, frameHeight: 20 }
@@ -51,16 +53,24 @@ function preload() {
 }
 
 function create() {
+
     this.add.tileSprite(0, 0, 1600, 1600, 'lab-background-tile').setScale(3);
+
+    let backgroundStuff = this.physics.add.staticGroup();
+    backgroundStuff.create(474, 0, 'lab-background-stuff').setScale(3).refreshBody().setSize(1000, 180).setOrigin(0.5, 0);
 
     resourceStands = this.physics.add.staticGroup();
     resourceStands.name = "resource-stand-group";
 
-    resourceStands.create(400, 170, "reagents")
+    resourceStands.create(620, 375, "reagents")
+        .setScale(3).refreshBody().setSize(95, 80).setOrigin(0.5, 0.33)
+
+    resourceStands.create(400, 200, "constructionMaterial")
         .setScale(3).refreshBody().setSize(90, 20).setOrigin(0.5, 0.20);
 
-    resourceStands.create(200, 200, "glassware")
+    resourceStands.create(170, 400, "glassware")
         .setScale(3).refreshBody().setSize(90, 50).setOrigin(0.5, 0.30)
+    
 
     player = new Player(this, 300, 200, 'cientista').setScale(3);
  
@@ -69,23 +79,22 @@ function create() {
     resourceController = new ResourceController([
         new ResourceCenter('reagents'),
         new ResourceCenter('glassware'),
-        new ResourceCenter('constructionmaterial')
+        new ResourceCenter('constructionMaterial')
     ], player.isCloseToGroup, resourceStands, player);
 
     let questionController = new QuestionControllerSingleton(CURRENT_BRANCH, resourceController);
     
     // Key events
     inputController = new InputController(this.input);
-    inputController.addKeyEvent('Q', resourceController.increment, 'reagents', resourceController);
-    inputController.addKeyEvent('W', resourceController.increment, 'glassware', resourceController);
     inputController.addKeyEvent('E', questionController.getInstance().presentNewQuestion, resourceController, questionController.getInstance());
 
     // Tooltip events
     tootipController = new TooltipController(this, player, player.isCloseToGroup);
-    tootipController.addTooltipEvent('interact-tooltip', resourceStands)
+    tootipController.addTooltipEvent('interact-tooltip', resourceStands);
     
     // Collider
     this.physics.add.collider(resourceStands, player);
+    this.physics.add.collider(backgroundStuff, player);
 
     this.children.bringToTop(player);
 }
