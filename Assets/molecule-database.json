@@ -6,7 +6,7 @@
    "formulaMolecular": "CO(NH2)2",
    "grupoFuncional": "Aldeído",
    "tipoHibridizacao": "sp2",
-   "aplicacaoPratica": "Forma-se principalmente no fígado, sendo filtrada pelos rins e eliminada pela urina ou pelo suor."
+   "aplicacaoPratica": "forma-se principalmente no fígado, sendo filtrada pelos rins e eliminada pela urina ou pelo suor"
  },
  {
    "Nome Informal": null,
@@ -15,7 +15,7 @@
    "formulaMolecular": "C3H6O2",
    "grupoFuncional": "Ácido Carboxílico",
    "tipoHibridizacao": "sp3, sp3, sp2",
-   "aplicacaoPratica": "É usado na indústria alimentícia para evitar o amarelecimento do pão."
+   "aplicacaoPratica": "é usado na indústria alimentícia para evitar o amarelecimento do pão"
  },
  {
    "Nome Informal": null,
@@ -24,7 +24,7 @@
    "formulaMolecular": "C2H6O",
    "grupoFuncional": "Álcool",
    "tipoHibridizacao": "sp3, sp3",
-   "aplicacaoPratica": "Encontrado em bebidas e utilizado como combustível de motores de explosão."
+   "aplicacaoPratica": "é encontrado em bebidas e utilizado como combustível de motores de explosão"
  },
  {
    "Nome Informal": null,
@@ -33,7 +33,7 @@
    "formulaMolecular": "C5H10O",
    "grupoFuncional": "Cetona",
    "tipoHibridizacao": "sp3, sp3, sp3, sp2, sp3",
-   "aplicacaoPratica": "Algumas vezes é usado em quantidades muito pequenas como um aditivo alimentar flavorizante."
+   "aplicacaoPratica": "é usado em quantidades muito pequenas como um aditivo alimentar flavorizante"
  },
  {
    "Nome Informal": "Etanal",
@@ -42,7 +42,7 @@
    "formulaMolecular": "C2H4O",
    "grupoFuncional": "Aldeído",
    "tipoHibridizacao": "sp3, sp2",
-   "aplicacaoPratica": "É um dos produtos da metabolização do etanol no organismo. É a substância responsável pela ressaca."
+   "aplicacaoPratica": "é um dos produtos da metabolização do etanol no organismo. É a substância responsável pela ressaca"
  },
  {
    "Nome Informal": "Polietileno",
@@ -51,7 +51,7 @@
    "formulaMolecular": "(CH2-CH2)n",
    "grupoFuncional": "Alcano",
    "tipoHibridizacao": "(sp3, sp3)n",
-   "aplicacaoPratica": "É o polímero mais simples quimicamente e um dos tipos de plástico mais comuns."
+   "aplicacaoPratica": "é o polímero mais simples quimicamente e um dos tipos de plástico mais comuns"
  },
  {
    "Nome Informal": null,
@@ -60,7 +60,7 @@
    "formulaMolecular": "\tC4H10",
    "grupoFuncional": "Alcano",
    "tipoHibridizacao": "sp3, sp3, sp3, sp3",
-   "aplicacaoPratica": "Está presente no gás liquefeito de petróleo (GLP)."
+   "aplicacaoPratica": "está presente no gás liquefeito de petróleo (GLP)"
  },
  {
    "Nome Informal": null,
@@ -69,7 +69,7 @@
    "formulaMolecular": "C4H8",
    "grupoFuncional": "Alceno",
    "tipoHibridizacao": "sp2, sp2, sp3, sp3",
-   "aplicacaoPratica": "O principal uso é a síntese do butadieno para a borracha artificial."
+   "aplicacaoPratica": "é usado como a síntese do butadieno para a borracha artificial"
  },
  {
    "Nome Informal": "Benzeno",
@@ -78,7 +78,7 @@
    "formulaMolecular": "C6H6",
    "grupoFuncional": "Aromático",
    "tipoHibridizacao": "sp2, sp2, sp2, sp2, sp2, sp2",
-   "aplicacaoPratica": "É uma substância usada como solvente (de iodo, enxofre, graxas, ceras, etc.)."
+   "aplicacaoPratica": "é uma substância usada como solvente (de iodo, enxofre, graxas, ceras, etc.)"
  },
  {
    "Nome Informal": "Acetileno",
@@ -87,7 +87,7 @@
    "formulaMolecular": "C2H2",
    "grupoFuncional": "Hidrocarboneto",
    "tipoHibridizacao": "sp",
-   "aplicacaoPratica": "É matéria prima para a produção de fibras têxteis, borrachas sintéticas e polímeros."
+   "aplicacaoPratica": "é matéria prima para a produção de fibras têxteis, borrachas sintéticas e polímeros"
  },
  {
    "Nome Informal": null,
@@ -96,7 +96,7 @@
    "formulaMolecular": "C2H6",
    "grupoFuncional": "Hidrocarboneto",
    "tipoHibridizacao": "sp3",
-   "aplicacaoPratica": "Usado como gás refrigerante para produzir tempraturas criogênicas em sistemas de refrigeração."
+   "aplicacaoPratica": "é usado como gás refrigerante para produzir tempraturas criogênicas em sistemas de refrigeração"
  },
  {
    "Nome Informal": "Ácido adípico",
@@ -105,7 +105,7 @@
    "formulaMolecular": "C6H10O4",
    "grupoFuncional": "Ácido Carboxílico",
    "tipoHibridizacao": "sp2, sp3",
-   "aplicacaoPratica": "Uma das matérias primas na fabricação do náilon."
+   "aplicacaoPratica": "é uma das matérias primas na fabricação do náilon"
  },
  {
    "Nome Informal": "Acetona",
@@ -114,7 +114,7 @@
    "formulaMolecular": "C3H6O",
    "grupoFuncional": "Cetona",
    "tipoHibridizacao": "sp2, sp3",
-   "aplicacaoPratica": "Vendida comercialmente como solvente de esmaltes de unha."
+   "aplicacaoPratica": "é vendida comercialmente como solvente de esmaltes de unha"
  },
  {
    "Nome Informal": "Acetato de amila",
@@ -123,7 +123,7 @@
    "formulaMolecular": "C7H14O2",
    "grupoFuncional": "Éster",
    "tipoHibridizacao": "sp2, sp3",
-   "aplicacaoPratica": "Composto que dá o aroma e sabor de banana à balas, iogurtes, bolos etc"
+   "aplicacaoPratica": "é um composto que dá o aroma e sabor de banana à balas, iogurtes, bolos etc"
  },
  {
    "Nome Informal": "Éter etílico",
@@ -132,7 +132,7 @@
    "formulaMolecular": "(C2H5)2O",
    "grupoFuncional": "Éter",
    "tipoHibridizacao": "sp3",
-   "aplicacaoPratica": "Era usado como anestésico em pacientes, mas foi abandonado devido ao alto riscod e explosão."
+   "aplicacaoPratica": "era usado como anestésico em pacientes, mas foi abandonado devido ao alto riscod e explosão"
  },
  {
    "Nome Informal": "Álcool de madeira",
@@ -141,7 +141,7 @@
    "formulaMolecular": "CH4O",
    "grupoFuncional": "Álcool",
    "tipoHibridizacao": "sp3",
-   "aplicacaoPratica": "Usado como solvente de tintas e verniz."
+   "aplicacaoPratica": "é usado como solvente de tintas e verniz"
  },
  {
    "Nome Informal": "Álcool vinílico",
@@ -150,6 +150,6 @@
    "formulaMolecular": "C2H4O",
    "grupoFuncional": "Enol",
    "tipoHibridizacao": "sp2",
-   "aplicacaoPratica": "Utilizado como odorizante nas indústrias farmacêuticas e alimentícias."
+   "aplicacaoPratica": "é utilizado como odorizante nas indústrias farmacêuticas e alimentícias"
  }
 ]
