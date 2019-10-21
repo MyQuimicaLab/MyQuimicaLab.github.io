@@ -30,7 +30,7 @@ section {
     font-family: 'Press Start 2P', cursive;
     display: none;
     position: absolute;
-    background-color: rgba(30, 119, 30, 0.87);
+    background-color: rgba(0, 0, 0, 0.75);
     color: #FAFAFA;
     border: 5px solid #0E4C07;
     z-index: 1000;
@@ -62,6 +62,7 @@ section > span {
     transition: 100ms;
     display: block;
     text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.60);
 }
 
 section p {
@@ -75,13 +76,15 @@ section p {
 }
 
 section h3, section > span {
-    background-color: #0b4A0D;
+    background-color: rgba(11, 74, 13, 0.8);
+    border-radius: 0.5em;
     padding: 1em 2em;
     margin: 1vw;
 }
 
 section h3 {
     text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.60);
 }
 
 section ul {
@@ -91,7 +94,9 @@ section ul {
 
 section ul li {
     cursor: pointer;
-    background-color: #0D630D;
+    background-color: rgba(13, 99, 13, 0.8);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.60);
+    border-radius: 0.5em;
     margin: 1vw;
     padding: 1em;
     transition: 200ms;
@@ -108,7 +113,7 @@ section ul li:hover, section > span:hover {
 }
 
 main > ul {
-    background-color: rgba(0, 102, 14, 0.747);
+    background-color: rgba(0, 0, 0, 0.55);
     border-radius: 5em;
     padding: 1em;
     position: absolute;
