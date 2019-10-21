@@ -33,7 +33,7 @@ class QuestionModalController {
 
         this._questionNumber++;
         this._hasAnswered = false;
-        this._nextQuestionSpanEl.innerHTML = "Aperte 'E' para ir para pular";
+        this._nextQuestionSpanEl.innerHTML = "Aperte 'E' para pular a questão";
     }
 
     _populateAlternativesList(alternatives, correctAnswerIndex) {
