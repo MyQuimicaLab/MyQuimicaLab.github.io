@@ -73,8 +73,16 @@ function create() {
     
 
     player = new Player(this, 400, 300, 'cientista').setScale(3);
- 
-    movController = new MovementController(player, this.input.keyboard.createCursorKeys(), PLAYER_VELOCITY)
+    
+    //this.input.keyboard.createCursorKeys()
+    const movementInputKeys = this.input.keyboard.addKeys({
+        up: Phaser.Input.Keyboard.KeyCodes.W,
+        down: Phaser.Input.Keyboard.KeyCodes.S,
+        left: Phaser.Input.Keyboard.KeyCodes.A,
+        right: Phaser.Input.Keyboard.KeyCodes.D
+    });
+
+    movController = new MovementController(player, movementInputKeys, PLAYER_VELOCITY)
 
     resourceController = new ResourceController([
         new ResourceCenter('reagents'),
