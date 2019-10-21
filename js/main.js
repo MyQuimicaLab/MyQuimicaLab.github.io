@@ -54,6 +54,10 @@ function preload() {
 
 function create() {
 
+    game.scale.pageAlignHorizontally = true;
+    game.scale.pageAlignVertically = true;
+    game.scale.refresh();
+
     this.add.tileSprite(0, 0, 1600, 1600, 'lab-background-tile').setScale(3);
 
     let backgroundStuff = this.physics.add.staticGroup();

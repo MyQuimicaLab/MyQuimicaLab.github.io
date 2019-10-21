@@ -14,8 +14,9 @@ body {
 }
 
 main {
-    width: var(--canvasWidth);
+    margin: 0 auto;
     height: var(--canvasHeight);
+    width: var(--canvasWidth);
     position: relative;
 }
 
