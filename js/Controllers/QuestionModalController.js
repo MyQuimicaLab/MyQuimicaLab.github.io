@@ -26,6 +26,7 @@ class QuestionModalController {
         const finalQuestionNumber = this._questionNumber < 10 ? "0" + this._questionNumber : this._questionNumber,
               resourceMultiplier = this._answerHandler.resourceMultiplier;
 
+        this._currentQuestion = question;
         this._questionTitleEl.innerHTML = `Questão ${finalQuestionNumber} (${resourceMultiplier}x)`;
         this._questionDescriptionEl.innerHTML = question.description;
         this._questionImageEl.src = question.imgSrcPath ? question.imgSrcPath : "";
@@ -46,12 +47,7 @@ class QuestionModalController {
             alternativeEl.innerHTML = `${currentAlternativeCharacter}) ${questionAlternative}`;
 
             alternativeEl.addEventListener('click', () => {
-                if(!this._hasAnswered) {
-                    this._answerHandler.handleAnswer(alternativeIndex, correctAnswerIndex);
-                    this._highlightAnswers(alternativeIndex, correctAnswerIndex);
-                    this._hasAnswered = true;
-                    this._nextQuestionSpanEl.innerHTML = "Aperte 'E' para ir para a próxima questão";
-                }
+                this._handleAnswerAttempt(alternativeIndex, correctAnswerIndex);
             })
 
             this._alternativeListEl.appendChild(alternativeEl);
@@ -81,6 +77,15 @@ class QuestionModalController {
                 this._handleQuit();
             }         
         })
+    }
+
+    _handleAnswerAttempt(attemptIndex, correctAnswerIndex) {
+        if(!this._hasAnswered) {
+            this._answerHandler.handleAnswer(attemptIndex, correctAnswerIndex);
+            this._highlightAnswers(attemptIndex, correctAnswerIndex);
+            this._hasAnswered = true;
+            this._nextQuestionSpanEl.innerHTML = "Aperte 'E' para ir para a próxima questão";
+        }
     }
 
     _handleQuit() {
