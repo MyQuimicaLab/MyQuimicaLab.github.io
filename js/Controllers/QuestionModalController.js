@@ -10,6 +10,8 @@ class QuestionModalController {
         this._hasAnswered = false;
         this._answerHandler = answerHandler;
         this._questionNumber = 1;
+        this._answeredQuestions = [];
+        this._currentQuestion = {};
 
         this._delegateCloseEvents();
     }
@@ -85,6 +87,15 @@ class QuestionModalController {
             this._highlightAnswers(attemptIndex, correctAnswerIndex);
             this._hasAnswered = true;
             this._nextQuestionSpanEl.innerHTML = "Aperte 'E' para ir para a próxima questão";
+
+            //TODO: Move this code to a dedicated class
+            this._answeredQuestions.push({
+                questionDescription: this._currentQuestion.description,
+                alternatives: this._currentQuestion.alternatives,
+                wasAnswerCorrect: this._answerHandler.isAnswerCorrect()
+            })
+
+            localStorage.setItem('userAnswers', JSON.stringify(this._answeredQuestions));
         }
     }
 
