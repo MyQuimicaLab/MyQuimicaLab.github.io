@@ -21,7 +21,7 @@ var config = {
 // Const
 const PLAYER_VELOCITY = 160;
 const REMOTE_ADDRESS =
-  "https://raw.githubusercontent.com/MyQuimicaLab/MyQuimicaLab.github.io/hotfix/master";
+  "https://raw.githubusercontent.com/MyQuimicaLab/MyQuimicaLab.github.io/master";
 
 // Var
 let game = new Phaser.Game(config);
